@@ -1,0 +1,86 @@
+
+=========== Re10000_M2WF_ke_std_swf ===========
+  read via file.read_case_data
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 29.382445, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+  Gnielinski Nu = 72.70; expected wall-to-bulk dT at that Nu = 5.00 K
+
+  band 20: bulk T (plane, mass-weighted) = 301.1106 K   q_in = 9687.60 W/m2
+    fluid side temperature                    T = 301.4066 K   T-Tb = +0.2960 K   implied Nu = 1228.11
+    fluid side wall-temperature               T = 305.8891 K   T-Tb = +4.7784 K   implied Nu = 76.07
+    fluid side wall-adjacent-temperature      T = 301.4066 K   T-Tb = +0.2960 K   implied Nu = 1228.11
+    fluid side reference-temperature-at-y+    T = 300.9687 K   T-Tb = -0.1419 K   implied Nu = -2561.54
+    solid side temperature                    T = 305.8916 K   T-Tb = +4.7809 K   implied Nu = 76.03
+    solid side wall-temperature               T = 305.8891 K   T-Tb = +4.7784 K   implied Nu = 76.07
+    solid side wall-adjacent-temperature      T = 305.8916 K   T-Tb = +4.7809 K   implied Nu = 76.03
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.1106 K   implied Nu = -1.21
+
+  band 30: bulk T (plane, mass-weighted) = 301.6534 K   q_in = 9687.57 W/m2
+    fluid side temperature                    T = 301.9480 K   T-Tb = +0.2945 K   implied Nu = 1234.07
+    fluid side wall-temperature               T = 306.4304 K   T-Tb = +4.7770 K   implied Nu = 76.09
+    fluid side wall-adjacent-temperature      T = 301.9480 K   T-Tb = +0.2945 K   implied Nu = 1234.07
+    fluid side reference-temperature-at-y+    T = 301.5101 K   T-Tb = -0.1433 K   implied Nu = -2535.80
+    solid side temperature                    T = 306.4329 K   T-Tb = +4.7795 K   implied Nu = 76.05
+    solid side wall-temperature               T = 306.4304 K   T-Tb = +4.7770 K   implied Nu = 76.09
+    solid side wall-adjacent-temperature      T = 306.4329 K   T-Tb = +4.7795 K   implied Nu = 76.05
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.6534 K   implied Nu = -1.20
+
+=========== Re25000_M2WF_ke_std_swf ===========
+  read via file.read_case_data
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 65.440472, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+  Gnielinski Nu = 164.24; expected wall-to-bulk dT at that Nu = 5.00 K
+
+  band 20: bulk T (plane, mass-weighted) = 301.0036 K   q_in = 21886.23 W/m2
+    fluid side temperature                    T = 301.2986 K   T-Tb = +0.2950 K   implied Nu = 2783.94
+    fluid side wall-temperature               T = 306.0122 K   T-Tb = +5.0086 K   implied Nu = 163.95
+    fluid side wall-adjacent-temperature      T = 301.2986 K   T-Tb = +0.2950 K   implied Nu = 2783.94
+    fluid side reference-temperature-at-y+    T = 301.0208 K   T-Tb = +0.0171 K   implied Nu = 47938.11
+    solid side temperature                    T = 306.0179 K   T-Tb = +5.0143 K   implied Nu = 163.77
+    solid side wall-temperature               T = 306.0122 K   T-Tb = +5.0086 K   implied Nu = 163.95
+    solid side wall-adjacent-temperature      T = 306.0179 K   T-Tb = +5.0143 K   implied Nu = 163.77
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.0036 K   implied Nu = -2.73
+
+  band 30: bulk T (plane, mass-weighted) = 301.4942 K   q_in = 21886.17 W/m2
+    fluid side temperature                    T = 301.7881 K   T-Tb = +0.2939 K   implied Nu = 2793.60
+    fluid side wall-temperature               T = 306.5018 K   T-Tb = +5.0076 K   implied Nu = 163.99
+    fluid side wall-adjacent-temperature      T = 301.7881 K   T-Tb = +0.2939 K   implied Nu = 2793.60
+    fluid side reference-temperature-at-y+    T = 301.5103 K   T-Tb = +0.0161 K   implied Nu = 50941.54
+    solid side temperature                    T = 306.5074 K   T-Tb = +5.0132 K   implied Nu = 163.80
+    solid side wall-temperature               T = 306.5018 K   T-Tb = +5.0076 K   implied Nu = 163.99
+    solid side wall-adjacent-temperature      T = 306.5074 K   T-Tb = +5.0132 K   implied Nu = 163.80
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.4942 K   implied Nu = -2.72
+
+=========== Re10000_M2 ===========
+  read via file.read_case_data
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 0.069727576, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+  Gnielinski Nu = 72.70; expected wall-to-bulk dT at that Nu = 5.00 K
+
+  band 20: bulk T (plane, mass-weighted) = 301.1101 K   q_in = 9687.60 W/m2
+    fluid side temperature                    T = 305.3547 K   T-Tb = +4.2446 K   implied Nu = 85.64
+    fluid side wall-temperature               T = 305.3942 K   T-Tb = +4.2841 K   implied Nu = 84.85
+    fluid side wall-adjacent-temperature      T = 305.3547 K   T-Tb = +4.2446 K   implied Nu = 85.64
+    fluid side reference-temperature-at-y+    T = 300.6931 K   T-Tb = -0.4170 K   implied Nu = -871.68
+    solid side temperature                    T = 305.3967 K   T-Tb = +4.2866 K   implied Nu = 84.80
+    solid side wall-temperature               T = 305.3942 K   T-Tb = +4.2841 K   implied Nu = 84.85
+    solid side wall-adjacent-temperature      T = 305.3967 K   T-Tb = +4.2866 K   implied Nu = 84.80
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.1101 K   implied Nu = -1.21
+
+  band 30: bulk T (plane, mass-weighted) = 301.6529 K   q_in = 9687.57 W/m2
+    fluid side temperature                    T = 305.8959 K   T-Tb = +4.2430 K   implied Nu = 85.67
+    fluid side wall-temperature               T = 305.9354 K   T-Tb = +4.2825 K   implied Nu = 84.88
+    fluid side wall-adjacent-temperature      T = 305.8959 K   T-Tb = +4.2430 K   implied Nu = 85.67
+    fluid side reference-temperature-at-y+    T = 301.2344 K   T-Tb = -0.4185 K   implied Nu = -868.45
+    solid side temperature                    T = 305.9379 K   T-Tb = +4.2850 K   implied Nu = 84.83
+    solid side wall-temperature               T = 305.9354 K   T-Tb = +4.2825 K   implied Nu = 84.88
+    solid side wall-adjacent-temperature      T = 305.9379 K   T-Tb = +4.2850 K   implied Nu = 84.83
+    solid side reference-temperature-at-y+    T = 0.0000 K   T-Tb = -301.6529 K   implied Nu = -1.20
+
+DONE. Upload 05_results\probe_wall_temperature.txt

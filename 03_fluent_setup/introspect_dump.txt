@@ -1,0 +1,464 @@
+
+##### setup.general
+child_names: ['solver', 'adjust_solver_defaults_based_on_setup', 'operating_conditions', 'units_settings']
+command_names: []
+{'operating_conditions': {'gravity': {'enable': False},
+                          'operating_pressure': 101325,
+                          'reference_pressure_location': [0, 0],
+                          'reference_pressure_method': 'Connected and disconnected fluid zones'},
+ 'solver': {'time': 'steady', 'two_dim_space': 'axisymmetric', 'type': 'pressure-based', 'velocity_formulation': 'absolute'},
+ 'units_settings': {'units': {'acceleration': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm/s^2'},
+                              'angle': {'offset': 0.0, 'scale_factor': 0.0174532925, 'unit_name': 'deg'},
+                              'angular-velocity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'rad/s'},
+                              'area': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2'},
+                              'area-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-2'},
+                              'area-per-time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/s'},
+                              'area-temperature': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2 K'},
+                              'collision-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-3 s^-1'},
+                              'concentration': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kmol/m^3'},
+                              'contact-resistance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(m^2 K)/W'},
+                              'contact-resistance-vol': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ohm m^3'},
+                              'crank-angle': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'deg'},
+                              'crank-angular-velocity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'rev/min'},
+                              'current': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'A'},
+                              'current-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'A/m^2'},
+                              'current-vol-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'A/m^3'},
+                              'density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/m^3'},
+                              'density*specific-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/m^3'},
+                              'density*specific-heat': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/(m^3 K)'},
+                              'density*time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(kg s)/m^3'},
+                              'density*velocity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^2 s)'},
+                              'density-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/m^4'},
+                              'density-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3/kg'},
+                              'depth': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm'},
+                              'elec-capacity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ah'},
+                              'elec-charge': {'offset': 0.0, 'scale_factor': 3600.0, 'unit_name': 'A h'},
+                              'elec-charge-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(A s)/m^3'},
+                              'elec-charge-flux-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ah/m^2'},
+                              'elec-concentration': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'mol/m^3'},
+                              'elec-conductivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'S/m'},
+                              'elec-contact-resistance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ohm m^2'},
+                              'elec-field': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'V/m'},
+                              'elec-permittivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'farad/m'},
+                              'elec-resistance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ohm'},
+                              'elec-resistivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Ohm m'},
+                              'energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J'},
+                              'energy-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/m2'},
+                              'force': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N'},
+                              'force*time-per-volume': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(N s)/m^3'},
+                              'force-per-area': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m^2'},
+                              'force-per-volume': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m^3'},
+                              'frequency': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Hz'},
+                              'gas-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/(kg K)'},
+                              'heat-flux': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/m^2'},
+                              'heat-flux-resolved': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(m K)/s'},
+                              'heat-generation-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/m^3'},
+                              'heat-transfer-coefficient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/(m^2 K)'},
+                              'ignition-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/mol'},
+                              'kinematic-viscosity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/s'},
+                              'length': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm'},
+                              'length-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-1'},
+                              'length-temperature': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm K'},
+                              'length-time-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-1 s^-1'},
+                              'length4-per-time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^4/s'},
+                              'mag-permeability': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'H/m'},
+                              'mass': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg'},
+                              'mass-diffusivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/s'},
+                              'mass-flow': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/s'},
+                              'mass-flow-per-depth': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s)'},
+                              'mass-flow-per-time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/s^2'},
+                              'mass-flux': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^2 s)'},
+                              'mass-transfer-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^3 s)'},
+                              'mole-con-henry-const': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(Pa m^3)/kgmol'},
+                              'mole-specific-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/kgmol'},
+                              'mole-specific-entropy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/(kgmol K)'},
+                              'mole-transfer-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kgmol/(m^3 s)'},
+                              'molec-wt': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/kmol'},
+                              'moment': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N m'},
+                              'moment-of-inertia': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg m^2'},
+                              'no-unit': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': ''},
+                              'nucleation-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-3 s^-1'},
+                              'number-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-3'},
+                              'particles-conc': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '1.e15-particles/kg'},
+                              'particles-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '1.e15 m^-3 s^-1'},
+                              'percentage': {'offset': 0.0, 'scale_factor': 0.01, 'unit_name': '%'},
+                              'power': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W'},
+                              'power-per-time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/s'},
+                              'pressure': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Pa'},
+                              'pressure-2nd-time-derivative': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Pa/s^2'},
+                              'pressure-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Pa/m'},
+                              'pressure-time-deriv-sqr': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Pa^2/s^2'},
+                              'pressure-time-derivative': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Pa/s'},
+                              'resistance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-1'},
+                              'site-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kgmol/m^2'},
+                              'soot-formation-constant-unit': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(N m s)'},
+                              'soot-limiting-nuclei-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '1e+15-particles/m3-s'},
+                              'soot-linear-termination': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3/s'},
+                              'soot-oxidation-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg m kgmol^-1 K^-0.5 s^-1'},
+                              'soot-pre-exponential-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '1.e15 kg^-1 s^-1'},
+                              'soot-sitespecies-concentration': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kmol/m^3'},
+                              'soot-surface-growth-scale-factor': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(kg m)/(kgmol s)'},
+                              'source-elliptic-relaxation-function': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^3 s^2)'},
+                              'source-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/m^3'},
+                              'source-kinetic-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s^3)'},
+                              'source-mass': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^3 s)'},
+                              'source-momentum': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m^3'},
+                              'source-specific-dissipation-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m^3 s^2)'},
+                              'source-temperature-variance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K^2/(m^3 s)'},
+                              'source-turbulent-dissipation-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s^4)'},
+                              'source-turbulent-viscosity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s^2)'},
+                              'specific-area': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/kg'},
+                              'specific-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/kg'},
+                              'specific-heat': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/(kg K)'},
+                              'spring-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m'},
+                              'spring-constant-angular': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(N m)/rad'},
+                              'stefan-boltzmann-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/(m^2 K^4)'},
+                              'surface-density': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/m^2'},
+                              'surface-mole-transfer-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kgmol/(m^2 s)'},
+                              'surface-tension': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m'},
+                              'surface-tension-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/(m K)'},
+                              'temperature': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K'},
+                              'temperature-difference': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K'},
+                              'temperature-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K/m'},
+                              'temperature-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K^-1'},
+                              'temperature-variance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'K^2'},
+                              'thermal-conductivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'W/(m K)'},
+                              'thermal-resistance': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(m^2 K)/W'},
+                              'thermal-resistivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(m K)/W'},
+                              'thermophoretic-diffusivity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': '(kg m^2)/s^2'},
+                              'time': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 's'},
+                              'time-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 's^-1'},
+                              'time-inverse-cubed': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 's^-3'},
+                              'time-inverse-squared': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 's^-2'},
+                              'turb-kinetic-energy-production': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s^3)'},
+                              'turbulent-energy-diss-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/s^3'},
+                              'turbulent-energy-diss-rate-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm/s^3'},
+                              'turbulent-kinetic-energy': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^2/s^2'},
+                              'turbulent-kinetic-energy-gradient': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm/s^2'},
+                              'univ-gas-constant': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'J/(K kgmol)'},
+                              'velocity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm/s'},
+                              'viscosity': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg/(m s)'},
+                              'viscosity-consistency-index': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'kg s^n-2 m^-1'},
+                              'voltage': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'V'},
+                              'volume': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3'},
+                              'volume-flow-rate': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3/s'},
+                              'volume-flow-rate-per-depth': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3/(s m)'},
+                              'volume-inverse': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^-3'},
+                              'volume-temperature': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'm^3/K'},
+                              'wave-length': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'Angstrom'},
+                              'youngs-modulus': {'offset': 0.0, 'scale_factor': 1.0, 'unit_name': 'N/m^2'}}}}
+
+##### setup.models
+child_names: ['multiphase', 'energy', 'viscous', 'acoustics', 'radiation', 'species', 'discrete_phase', 'virtual_blade_model', 'optics', 'structure', 'ablation', 'dsmc', 'echemistry', 'battery', 'system_coupling', 'sofc', 'pemfc']
+command_names: []
+{'acoustics': {'model': 'off'},
+ 'discrete_phase': {'general_settings': {'cell_averaged_postprocessing': 'none', 'interaction': {'enabled': False}},
+                    'injections': {},
+                    'numerics': {'dynamic_interaction_range_enabled': False,
+                                 'high_res_tracking': {'always_use_face_centroid_with_periodics': True,
+                                                       'auto_intersect_tol_enabled': True,
+                                                       'barycentric_intersection_enabled': False,
+                                                       'barycentric_sampling_enabled': False,
+                                                       'boundary_layer_tracking_enabled': True,
+                                                       'enabled': True,
+                                                       'flow_interpolation': {'density_enabled': False,
+                                                                              'gradients_enabled': True,
+                                                                              'specific_heat_enabled': False,
+                                                                              'temperature_enabled': False,
+                                                                              'viscosity_enabled': False,
+                                                                              'wall_zero_vel_enabled': False},
+                                                       'particle_relocation': {'enhanced_method_enabled': False,
+                                                                               'legacy_method_enabled': False,
+                                                                               'overset_robustness_level': 1,
+                                                                               'support_for_std_track_data_read_enabled': False},
+                                                       'quad_face_centroid_enabled': False,
+                                                       'stuck_particle_removal_enabled': True,
+                                                       'subtet_validity_checking_enabled': False},
+                                 'node_based_averaging': {'enabled': False},
+                                 'tracking': {'accuracy_control': {'enabled': True,
+                                                                   'max_num_refinements': 20,
+                                                                   'step_size_fraction': 1.0,
+                                                                   'tolerance': 1e-05},
+                                              'high_order_scheme': 'trapezoidal',
+                                              'low_order_scheme': 'implicit',
+                                              'option': 'automatic'}},
+                    'parallel': {'expert': {'parallel_verbosity_level': 0}, 'hybrid': {'dpm_domain': {'enabled': False}}, 'option': 'hybrid'},
+                    'physical_models': {'erosion_accretion_enabled': False,
+                                        'particle_forces': {'pressure_force_enabled': False,
+                                                            'pressure_gradient_force': {},
+                                                            'saffman_lift_force_enabled': False,
+                                                            'virtual_mass_force': {'enabled': False}},
+                                        'twoway_turb_coupl_enabled': False},
+                    'tracking': {'advanced': {'randomize_every_iteration': True,
+                                              'randomize_every_timestep': True,
+                                              'reference_frame': 'relative',
+                                              'verbosity': 1},
+                                 'max_num_steps': 50000,
+                                 'step_size_controls': {'option': 'step-length-factor', 'step_length_factor': 5}},
+                    'user_defined_functions': {'body_force': 'none',
+                                               'dpm_time_step_size': 'none',
+                                               'flow_interpolation': 'none',
+                                               'max_num_udf_species': 50,
+                                               'number_of_scalars': 0,
+                                               'output': 'none',
+                                               'scalar_update': 'none',
+                                               'source_terms': 'none'}},
+ 'echemistry': {'enabled': False},
+ 'energy': {'enabled': False},
+ 'multiphase': {'model': 'none'},
+ 'pemfc': {'enabled': False},
+ 'radiation': {'model': 'none'},
+ 'sofc': {'enabled': False},
+ 'species': {'model': {'number_volumetric_species': False, 'option': 'off'}, 'nox': {}},
+ 'structure': {'model': 'off'},
+ 'viscous': {'k_omega': {'coefficients': {'a1': 0.31,
+                                          'alpha_inf': 0.52,
+                                          'alpha_star_inf': 1.0,
+                                          'beta_star_inf': 0.09,
+                                          'k_epsilon_regime': {'beta_i': 0.0828, 'sdr_prandtl_number': 1.168, 'tke_prandtl_number': 1.0},
+                                          'k_omega_regime': {'beta_i': 0.075, 'sdr_prandtl_number': 2.0, 'tke_prandtl_number': 1.176}},
+                         'k_omega_low_re_correction': False},
+             'k_omega_model': 'sst',
+             'model': 'k-omega',
+             'near_wall_treatment': {'wall_omega_treatment': 'correlation'},
+             'options': {'production_kato_launder_enabled': False, 'production_limiter': {'clip_factor': 10.0, 'enabled': True}},
+             'transition_module': 'none',
+             'turbulence_expert': {'restore_sst_v61': False, 'turb_non_newtonian': False},
+             'user_defined_functions': {'turb_visc': 'none'}}}
+
+##### setup.models.viscous
+child_names: ['model', 'spalart_allmaras_production', 'k_epsilon_model', 'k_omega_model', 'k_omega', 'geko', 'k_epsilon', 'reynolds_stress', 'subgrid_scale_model', 'les_model_options', 'reynolds_stress_options', 'near_wall_treatment', 'rans', 'des', 'transition_module', 'hybrid_rans_les', 'sbes', 'user_defined_transition', 'options', 'multiphase_turbulence', 'turbulence_expert', 'transition', 'transition_sst', 'user_defined_functions', 'sa_enhanced_wall_treatment', 'sa_damping']
+command_names: []
+{'k_omega': {'coefficients': {'a1': 0.31,
+                              'alpha_inf': 0.52,
+                              'alpha_star_inf': 1.0,
+                              'beta_star_inf': 0.09,
+                              'k_epsilon_regime': {'beta_i': 0.0828, 'sdr_prandtl_number': 1.168, 'tke_prandtl_number': 1.0},
+                              'k_omega_regime': {'beta_i': 0.075, 'sdr_prandtl_number': 2.0, 'tke_prandtl_number': 1.176}},
+             'k_omega_low_re_correction': False},
+ 'k_omega_model': 'sst',
+ 'model': 'k-omega',
+ 'near_wall_treatment': {'wall_omega_treatment': 'correlation'},
+ 'options': {'production_kato_launder_enabled': False, 'production_limiter': {'clip_factor': 10.0, 'enabled': True}},
+ 'transition_module': 'none',
+ 'turbulence_expert': {'restore_sst_v61': False, 'turb_non_newtonian': False},
+ 'user_defined_functions': {'turb_visc': 'none'}}
+
+##### setup.models.energy
+child_names: ['enabled', 'viscous_dissipation', 'pressure_work', 'kinetic_energy', 'inlet_diffusion', 'two_temperature']
+command_names: []
+{'enabled': False}
+
+##### setup.materials (names only)
+child_names: ['database', 'fluid', 'solid', 'mixture', 'inert_particle', 'droplet_particle', 'combusting_particle', 'particle_mixture']
+command_names: ['list_materials', 'list_properties']
+
+##### materials.fluid['air']
+child_names: ['name', 'chemical_formula', 'density', 'viscosity', 'specific_heat', 'thermal_conductivity', 'molecular_weight', 'premix_laminar_speed', 'premix_critical_strain', 'premix_unburnt_temp', 'premix_unburnt_density', 'premix_heat_trans_coeff', 'premix_heat_of_comb', 'premix_unburnt_fuel_mf', 'premix_adiabatic_temp', 'therm_exp_coeff', 'characteristic_vibrational_temperature', 'reference_diameter', 'viscosity_reference_temperature', 'viscosity_temperature_index', 'rotational_degrees_of_freedom', 'rotational_collision_number', 'vibrational_collision_number', 'absorption_coefficient', 'melting_heat', 'tsolidus', 'tliqidus', 'liquidus_slope', 'partition_coeff', 'eutectic_mf', 'solid_diffusion', 'solut_exp_coeff', 'scattering_coefficient', 'scattering_phase_function', 'refractive_index', 'formation_entropy', 'formation_enthalpy', 'reference_temperature', 'lennard_jones_length', 'lennard_jones_energy', 'thermal_accom_coefficient', 'velocity_accom_coefficient', 'degrees_of_freedom', 'electric_conductivity', 'dual_electric_conductivity', 'lithium_diffusivity', 'magnetic_permeability', 'speed_of_sound', 'critical_temperature', 'critical_pressure', 'critical_volume', 'acentric_factor', 'latent_heat', 'saturation_pressure', 'vaporization_temperature', 'charge', 'uds_diffusivity']
+command_names: []
+{'chemical_formula': '', 'density': {'option': 'value', 'value': 1.225}, 'name': 'air', 'viscosity': {'option': 'value', 'value': 1.7894e-05}}
+
+##### materials.solid['aluminum']
+child_names: ['name', 'chemical_formula', 'density', 'specific_heat', 'thermal_conductivity', 'atomic_number', 'absorption_coefficient', 'scattering_coefficient', 'scattering_phase_function', 'refractive_index', 'electric_conductivity', 'dual_electric_conductivity', 'lithium_diffusivity', 'magnetic_permeability', 'struct_youngs_modulus', 'struct_poisson_ratio', 'struct_start_temperature', 'struct_thermal_expansion', 'struct_damping_alpha', 'struct_damping_beta', 'uds_diffusivity']
+command_names: []
+{'chemical_formula': 'al', 'density': {'option': 'value', 'value': 2719}, 'name': 'aluminum'}
+
+##### setup.cell_zone_conditions (names only)
+child_names: ['fluid', 'solid']
+command_names: ['copy', 'set_zone_type', 'activate_cell_zone', 'mrf_to_sliding_mesh', 'convert_all_solid_mrf_to_solid_motion', 'copy_mrf_to_mesh_motion', 'copy_mesh_to_mrf_motion', 'dual_potential_zone', 'adjacency']
+
+##### cell_zone_conditions.fluid['fluid']
+child_names: ['name', 'phase', 'general', 'conical', 'reference_frame', 'mesh_motion', 'zonal_models', 'porous_zone', 'fan_zone', 'embedded_les', 'reaction', 'sources', 'fixed_values', 'multiphase', 'disabled']
+command_names: ['display', 'create_surface']
+{'fixed_values': {'enable': False},
+ 'general': {'laminar': False, 'material': 'air'},
+ 'mesh_motion': {'enable': False},
+ 'name': 'fluid',
+ 'porous_zone': {'porous': False},
+ 'reference_frame': {'frame_motion': False},
+ 'sources': {'enable': False},
+ 'zonal_models': {}}
+
+##### cell_zone_conditions.solid['solid']
+child_names: ['name', 'phase', 'general', 'reference_frame', 'mesh_motion', 'solid_motion', 'sources', 'fixed_values', 'material_orientation', 'disabled', 'internal']
+command_names: ['display', 'create_surface']
+{'fixed_values': {},
+ 'general': {'material': 'aluminum'},
+ 'material_orientation': {},
+ 'mesh_motion': {'enable': False},
+ 'name': 'solid',
+ 'reference_frame': {'frame_motion': False},
+ 'solid_motion': {'enable': False},
+ 'sources': {}}
+
+##### setup.boundary_conditions (names only)
+child_names: ['axis', 'degassing', 'exhaust_fan', 'fan', 'geometry', 'inlet_vent', 'intake_fan', 'interface', 'interior', 'mass_flow_inlet', 'mass_flow_outlet', 'network', 'network_end', 'outflow', 'outlet_vent', 'overset', 'periodic', 'porous_jump', 'pressure_far_field', 'pressure_inlet', 'pressure_outlet', 'radiator', 'rans_les_interface', 'recirculation_inlet', 'recirculation_outlet', 'shadow', 'symmetry', 'velocity_inlet', 'wall', 'non_reflecting_bc', 'perforated_wall', 'settings']
+command_names: ['copy', 'set_zone_type', 'slit_face_zone', 'non_overlapping_zone_name', 'slit_interior_between_diff_materials', 'create_all_shell_threads', 'recreate_all_shells', 'delete_all_shells', 'orient_face_zone', 'knudsen_number_calculator', 'add_suffix_or_prefix', 'rename_by_adjacency', 'rename_to_default']
+
+##### bc.velocity_inlet['inlet']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {'initial_gauge_pressure': {'option': 'value', 'value': 0},
+              'reference_frame': 'Absolute',
+              'velocity_magnitude': {'option': 'value', 'value': 0},
+              'velocity_specification_method': 'Magnitude, Normal to Boundary'},
+ 'name': 'inlet',
+ 'turbulence': {'turbulence_specification': 'Intensity and Viscosity Ratio', 'turbulent_intensity': 0.05, 'turbulent_viscosity_ratio': 10}}
+
+##### bc.pressure_outlet['outlet']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {'avg_pressure_spec': False,
+              'backflow_dir_spec_method': 'Normal to Boundary',
+              'backflow_pressure_spec': 'Total Pressure',
+              'backflow_reference_frame': 'Absolute',
+              'gauge_pressure': {'option': 'value', 'value': 0},
+              'pressure_profile_multiplier': 1.0,
+              'prevent_reverse_flow': False,
+              'target_mass_flow_rate': False},
+ 'name': 'outlet',
+ 'turbulence': {'backflow_turbulent_intensity': 0.05,
+                'backflow_turbulent_viscosity_ratio': 10,
+                'turbulence_specification': 'Intensity and Viscosity Ratio'}}
+
+##### bc.wall['outer_heated']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'wall_film', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'ablation', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {}, 'name': 'outer_heated', 'turbulence': {}}
+
+##### bc.wall['outer_unheated']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'wall_film', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'ablation', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {}, 'name': 'outer_unheated', 'turbulence': {}}
+
+##### bc.wall['interface_fs']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'wall_film', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'ablation', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {'shear_condition': 'No Slip', 'wall_motion': 'Stationary Wall'},
+ 'name': 'interface_fs',
+ 'turbulence': {'roughness_const': {'option': 'value', 'value': 0.5},
+                'roughness_height': {'option': 'value', 'value': 0},
+                'roughness_model': 'Standard'}}
+
+##### bc.wall['interface_fs-shadow']
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'wall_film', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'ablation', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {}, 'name': 'interface_fs-shadow', 'turbulence': {}}
+
+##### bc.axis['axis']
+child_names: ['name', 'phase', 'geometry']
+command_names: ['display', 'create_surface']
+{'name': 'axis'}
+
+##### solution (names only)
+child_names: ['methods', 'controls', 'report_definitions', 'monitor', 'cell_registers', 'initialization', 'calculation_activity', 'run_calculation']
+command_names: []
+
+##### solution.methods
+child_names: ['axisymmetric', 'p_v_coupling', 'spatial_discretization', 'spatial_discretization_parameters', 'pseudo_time_method', 'transient_formulation', 'unsteady_global_time', 'accelerated_non_iterative_time_marching', 'convergence_acceleration_for_stretched_meshes', 'divergence_prevention', 'expert', 'frozen_flux', 'high_order_term_relaxation', 'multiphase_numerics', 'nb_gradient_boundary_option', 'nita', 'nita_expert_controls', 'overset', 'phase_based_vof_discretization', 'reduced_rank_extrapolation', 'reduced_rank_extrapolation_options', 'use_limiter_in_time', 'vof_numerics', 'warped_face_gradient_correction', 'high_speed_numerics', 'species_disc_together', 'poor_mesh_robustness', 'poor_mesh_numerics', 'turbo_numerics']
+command_names: ['set_solution_methods_to_default', 'set_optimized_les_numerics']
+{'expert': {'disable_rhie_chow_flux': False,
+            'first_to_second_order_blending': 1.0,
+            'implicit_bodyforce_treatment': False,
+            'physical_velocity_formulation': False,
+            'presto_pressure_scheme': False,
+            'velocity_formulation': 'absolute'},
+ 'high_order_term_relaxation': {'enable': False, 'relaxation_factor': 0.25, 'select_variables': 'flow-variables', 'type': 'standard'},
+ 'p_v_coupling': {'flow_scheme': 'Coupled', 'flux_auto_select': True, 'flux_type': 'Rhie-Chow: momentum based'},
+ 'poor_mesh_numerics': {'cell_quality_based': False,
+                        'gradient_quality_based': False,
+                        'reset_poor_elements': False,
+                        'solution_and_quality_based': False,
+                        'turbulence_production_term': True},
+ 'pseudo_time_method': {'formulation': {'coupled_solver': 'global-time-step'}},
+ 'spatial_discretization': {'discretization_scheme': {'k': 'second-order-upwind',
+                                                      'mom': 'second-order-upwind',
+                                                      'omega': 'second-order-upwind',
+                                                      'pressure': 'second-order'},
+                            'gradient_scheme': 'least-square-cell-based'},
+ 'warped_face_gradient_correction': {'enable': False}}
+
+##### solution.controls
+child_names: ['courant_number', 'p_v_controls', 'residual_smoothing', 'relaxation_factor', 'under_relaxation', 'pseudo_time_method_local_time_step', 'pseudo_time_explicit_relaxation_factor', 'zonal_pbns_solution_controls', 'acoustics_wave_eqn_controls', 'contact_solution_controls', 'equations', 'limits', 'advanced', 'species_urf_together']
+command_names: ['reset_solution_controls', 'reset_amg_controls', 'reset_multi_stage_parameters', 'reset_limits', 'reset_pseudo_time_method_generic', 'reset_pseudo_time_method_equations', 'reset_pseudo_time_method_relaxations', 'reset_pseudo_time_method_scale_factors']
+{'advanced': {'boundary_presto_treatment': False,
+              'expert': {'allow_all_disc_schemes': False,
+                         'keep_temporary_memory': False,
+                         'pseudo_time_method_usage': {'k': {'enable_pseudo_time_method': True,
+                                                            'implicit_under_relaxation_factor': 0.8,
+                                                            'pseudo_time_scale_factor': 1.0},
+                                                      'omega': {'enable_pseudo_time_method': True,
+                                                                'implicit_under_relaxation_factor': 0.8,
+                                                                'pseudo_time_scale_factor': 1.0}},
+                         'save_cell_residuals': False,
+                         'spatial_discretization_limiter': {'cell_to_limiting': 'cell-to-face', 'limiter_filter': False, 'limiter_type': 'default'}},
+              'multi_grid': {'amg_controls': {'coupled_parameters': {'coarsening_parameters': {'aggressive_coarsening': True,
+                                                                                               'coarsen_by_interval': 4,
+                                                                                               'conservative_coarsening': True,
+                                                                                               'laplace_coarsening': False,
+                                                                                               'max_coarse_levels': 40},
+                                                                     'fixed_cycle_parameters': {'max_cycle': 10, 'post_sweeps': 3, 'pre_sweeps': 0},
+                                                                     'smoother_type': 'ILU'},
+                                              'flexible_cycle_parameters': {'max_coarse_relaxations': 50, 'max_fine_relaxations': 30, 'sweeps': 2},
+                                              'options': {'verbosity': 0},
+                                              'scalar_parameters': {'coarsening_parameters': {'aggressive_coarsening': True,
+                                                                                              'coarsen_by_interval': 4,
+                                                                                              'conservative_coarsening': True,
+                                                                                              'laplace_coarsening': False,
+                                                                                              'max_coarse_levels': 40},
+                                                                    'fixed_cycle_parameters': {'max_cycle': 30, 'post_sweeps': 3, 'pre_sweeps': 0},
+                                                                    'smoother_type': 'ILU'}},
+                             'mg_controls': {'k': {'cycle_type': 'f-cycle', 'stabilization': 'none', 'termination_criteria': 0.1},
+                                             'omega': {'cycle_type': 'f-cycle', 'stabilization': 'none', 'termination_criteria': 0.1},
+                                             'pressure-coupled': {'cycle_type': 'f-cycle', 'stabilization': 'none', 'termination_criteria': 0.1}}},
+              'relaxation_method': 'gauss-seidel',
+              'secondary_gradient_limiting': {'energy': False, 'uds': False}},
+ 'equations': {'flow': True, 'kw': True},
+ 'limits': {'max_pressure': 50000000000.0, 'max_turb_visc_ratio': 100000.0, 'min_omega': 1e-20, 'min_pressure': 1, 'min_tke': 1e-14},
+ 'p_v_controls': {'explicit_momentum_under_relaxation': 0.5, 'explicit_pressure_under_relaxation': 0.5},
+ 'pseudo_time_explicit_relaxation_factor': {'global_dt_pseudo_relax': {'body-force': 1.0,
+                                                                       'density': 1.0,
+                                                                       'k': 0.75,
+                                                                       'omega': 0.75,
+                                                                       'turb-viscosity': 1.0}}}
+
+##### solution.initialization (names only)
+child_names: ['initialization_type', 'reference_frame', 'defaults', 'localized_turb_init', 'hybrid_init_options', 'patch', 'open_channel_auto_init', 'fmg', 'enable_profile_memory_flushing', 'species_selection']
+command_names: ['initialize', 'compute_defaults', 'standard_initialize', 'hybrid_initialize', 'list_defaults', 'init_turb_vel_fluctuations', 'init_flow_statistics', 'show_iterations_sampled', 'show_time_sampled', 'dpm_reset', 'lwf_reset', 'init_lwf', 'init_acoustics_options', 'levelset_auto_init', 'reset_initialization']
+
+##### solution.run_calculation (names only)
+child_names: ['parameters', 'pseudo_time_settings', 'adaptive_time_stepping', 'cfl_based_adaptive_time_stepping', 'solution_steering', 'time_step_count', 'transient_controls', 'options', 'pollutants', 'data_sampling', 'data_sampling_options', 'residual_verbosity', 'compute_resources', 'remote_compute']
+command_names: ['calculate', 'interrupt', 'dual_time_iterate', 'iterate']
+
+##### solution.monitor (names only)
+child_names: ['residual', 'report_files', 'report_plots', 'convergence_conditions']
+command_names: []
+
+##### results (names only)
+child_names: ['custom_field_functions', 'custom_vectors', 'surfaces', 'graphics', 'plot', 'ansys_sound_analysis', 'scene', 'annotation', 'animations', 'report']
+command_names: []
+
+##### results.surfaces (names only)
+child_names: ['point_surface', 'line_surface', 'rake_surface', 'plane_surface', 'iso_surface', 'iso_clip', 'zone_surface', 'partition_surface', 'transform_surface', 'imprint_surface', 'plane_slice', 'sphere_slice', 'quadric_surface', 'surface_cells', 'expression_volume', 'group_surface']
+command_names: ['delete', 'create_multiple_zone_surfaces', 'create_multiple_iso_surfaces', 'create_multiple_plane_surfaces', 'create_group_surfaces', 'ungroup_surfaces', 'set_rendering_priority', 'reset_zone_surfaces', 'split_surface', 'external_surface']
+
+##### results.report (names only)
+child_names: ['simulation_reports', 'discrete_phase', 'fluxes', 'flow', 'modified_setting_options', 'population_balance', 'heat_exchanger', 'system', 'surface_integrals', 'volume_integrals', 'phasic_integrals_enabled', 'efficiency']
+command_names: ['aero_optical_distortions', 'forces', 'multiphase_summary', 'particle_summary', 'pathline_summary', 'projected_surface_area', 'summary', 'vbm']
+
+##### results.report.surface_integrals (names only)
+child_names: []
+command_names: ['area', 'area_weighted_avg', 'vector_based_flux', 'vector_flux', 'vector_weighted_average', 'facet_avg', 'facet_min', 'facet_max', 'flow_rate', 'integral', 'mass_flow_rate', 'mass_weighted_avg', 'standard_deviation', 'sum', 'uniformity_index_area_weighted', 'uniformity_index_mass_weighted', 'vertex_avg', 'vertex_min', 'vertex_max', 'volume_flow_rate']
+
+##### results.report.fluxes (names only)
+child_names: []
+command_names: ['mass_flow', 'heat_transfer', 'heat_transfer_sensible', 'radiation_heat_transfer', 'film_mass_flow', 'film_heat_transfer', 'electric_current', 'pressure_work', 'viscous_work']
+
+##### file (names only)
+child_names: ['single_precision_coordinates', 'binary_legacy_files', 'cff_files', 'auto_merge_zones', 'convert_hanging_nodes_during_read', 'async_optimize', 'write_pdat', 'export', 'import_', 'parametric_project', 'cffio_options', 'batch_options', 'interpolate', 'table_file_manager']
+command_names: ['define_macro', 'execute_macro', 'read_macros', 'read', 'read_case', 'read_case_data', 'read_case_lightweight', 'read_data', 'read_mesh', 'read_surface_mesh', 'read_journal', 'start_journal', 'start_python_journal', 'stop_journal', 'replace_mesh', 'write', 'write_case', 'write_data', 'write_case_data', 'read_settings', 'read_field_functions', 'read_injections', 'read_profile', 'read_pdf', 'read_isat_table', 'show_configuration', 'stop_macro', 'start_transcript', 'stop_transcript', 'data_file_options', 'beta_settings']
+
+##### tui boundary_conditions.wall children
+['advanced', 'axis', 'bc_settings', 'copy_bc', 'fluid', 'impedance_data_fitting', 'list_zones', 'modify_zones', 'non_reflecting_bc',
+ 'perforated_walls', 'pressure_outlet', 'rename_zone', 'set', 'solid', 'target_mass_flow_rate_settings', 'velocity_inlet', 'wall', 'zone_name',
+ 'zone_type']

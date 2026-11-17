@@ -1,0 +1,47 @@
+{
+  "tag": "Re10000_B3D",
+  "Re": 10000.0,
+  "converged": true,
+  "iterations": 1650,
+  "Nu_window": 84.28573552433635,
+  "Nu_heated_avg": 85.12651653240532,
+  "Nu_gnielinski": 72.6964083636404,
+  "gnielinski_error_pct": 15.942090430003187,
+  "reference_2D": {
+    "M2": {
+      "file": "gateA_Re10000_M2_ke_rlz_ewt.json",
+      "Nu_2D": 84.06633316864787,
+      "diff_pct": 0.26098718407085997
+    },
+    "B3D": {
+      "file": "gateA_Re10000_B3D_ke_rlz_ewt.json",
+      "Nu_2D": 84.03585153891522,
+      "diff_pct": 0.2973540231283378
+    }
+  },
+  "gateB_diff_pct": 0.26098718407085997,
+  "gateB_pass": true,
+  "window_spread_pct": 0.00024014245868896349,
+  "window_flat_flag": true,
+  "energy_balance_pct": 0.00012133494105662646,
+  "fluent_mdot_half": 0.077224274,
+  "fluent_mdot_over_expected": 0.9999999946123923,
+  "T_out": 302.16645,
+  "dTb_expected": 2.1664526156129518,
+  "dTb_cfd": 2.1664499999999975,
+  "q_in_max_dev_from_expected_pct": 8.183739623862569e-06,
+  "f_cfd": 0.03453299729722057,
+  "f_correlation": 0.030563841752652934,
+  "delta_p_1p2_to_2p0": 83.76211,
+  "wall_T_spread_x3p5": 0.04879999999997153,
+  "inlet_velocity": 0.3741122576507258,
+  "yplus_avg": 0.071249156,
+  "yplus_max": 0.10622488,
+  "yplus_max_window": 0.071015969,
+  "mesh": "B3D",
+  "turb": "ke_rlz_ewt",
+  "cells": 449328,
+  "flow_iterations": 600,
+  "recipe_relax": 0.5,
+  "recipe_scale1": 0.1
+}

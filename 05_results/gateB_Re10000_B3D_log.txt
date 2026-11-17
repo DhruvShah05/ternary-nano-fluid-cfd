@@ -1,0 +1,91 @@
+Gate B Re10000_B3D   mesh pipe3d_B3D.msh (449328 cells, half model)   turbulence ke_rlz_ewt   relax=0.5 scale1=0.1
+Expected (half model): re=10000, pr=5.8316, v=0.37411, mdot=0.077224, f=0.030564, nu_gnielinski=72.696, h_expected=1937.5, q_in_expected=9687.6, q_out=8912.6, q_total=699.49, dTb_expected=2.1665, v_circle=0.37304
+Expected inlet static pressure about 371 Pa (Darcy)
+Mesh read (3D), interface slit, energy on.
+  mesh check run (see the transcript for its report)
+  Fluent mesh check: no left-handed faces, no non-positive volumes
+Applying setup:
+    verified: model=k-epsilon variant=realizable wall_treatment=enhanced-wall-treatment Pr_t(energy)=0.85 Pr_t(wall)=0.85
+  OK    viscous model ke_rlz_ewt
+  OK    material nf (water, constant)
+  OK    material copper from database
+  OK    fluid zone -> nf
+  OK    solid zone -> copper
+  OK    velocity inlet 0.374112 m/s
+  OK    pressure outlet
+  OK    outer_q1..q4 heat flux 8912.6, 8912.6, 8912.6, 8912.6
+  OK    adiabatic walls
+  OK    symmetry plane zones present
+  OK    explicit relaxation 0.5
+  OK    residual targets, auto-stop OFF
+    verified discretisation: {'epsilon': 'second-order-upwind', 'k': 'second-order-upwind', 'mom': 'second-order-upwind', 'pressure': 'second-order', 'temperature': 'second-order-upwind'}
+  OK    second-order discretisation (all equations)
+  OK    pseudo-time scale factor 0.1
+Initialising (flow-first: temperature equation OFF):
+  temperature equation -> OFF (via equations['temperature'] = ...)
+  patch T=300.0 OK with ['cell_zones', 'value', 'variable']
+Warm-up 50 iterations, then post-processing setup:
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 0.071241031, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+Flow stage (temperature equation OFF):
+  flow it 100: p_in=451.019 Pa  m_in=0.07722  m_out=-0.07734  (out/in=1.002)  T_out=300.0000
+  flow it 200: p_in=424.282 Pa  m_in=0.07722  m_out=-0.07722  (out/in=1.000)  T_out=300.0000
+  flow it 300: p_in=424.753 Pa  m_in=0.07722  m_out=-0.07722  (out/in=1.000)  T_out=300.0000
+  flow it 400: p_in=424.746 Pa  m_in=0.07722  m_out=-0.07722  (out/in=1.000)  T_out=300.0000
+  flow it 500: p_in=424.746 Pa  m_in=0.07722  m_out=-0.07722  (out/in=1.000)  T_out=300.0000
+  flow it 600: p_in=424.746 Pa  m_in=0.07722  m_out=-0.07722  (out/in=1.000)  T_out=300.0000
+  flow settled after 600 its
+Energy stage (temperature equation ON):
+  temperature equation -> ON (via equations['temperature'] = ...)
+  iterations: 100   T_out = 300.2521 K
+  iterations: 200   T_out = 300.6199 K
+  iterations: 300   T_out = 300.9966 K
+  iterations: 400   T_out = 301.3722 K
+  iterations: 500   T_out = 301.7473 K
+  it 600: Nu_win=84.4898 Tout=302.05557 eb=5.1182% {}
+  it 700: Nu_win=84.3095 Tout=302.15301 eb=0.6205% {}
+  it 800: Nu_win=84.2876 Tout=302.16535 eb=0.0509% {}
+  it 900: Nu_win=84.2859 Tout=302.16638 eb=0.0034% {'dT_rel': 0.00036685302641502343, 'dNu_rel': 0.002413327317479841, 'eb': 3.352423360339985e-05}
+  it 1000: Nu_win=84.2857 Tout=302.16645 eb=0.0001% {'dT_rel': 4.448077482333465e-05, 'dNu_rel': 0.00028138606821597676, 'eb': 1.2133494105662646e-06}
+Finished: 1650 iterations (flow 600 + energy 1000), converged=True, wall time 47.2 min
+
+==== RESULT ====
+  tag: Re10000_B3D
+  Re: 10000.0
+  converged: True
+  iterations: 1650
+  Nu_window: 84.28573552433635
+  Nu_heated_avg: 85.12651653240532
+  Nu_gnielinski: 72.6964083636404
+  gnielinski_error_pct: 15.942090430003187
+  reference_2D: {'M2': {'file': 'gateA_Re10000_M2_ke_rlz_ewt.json', 'Nu_2D': 84.06633316864787, 'diff_pct': 0.26098718407085997}, 'B3D': {'file': 'gateA_Re10000_B3D_ke_rlz_ewt.json', 'Nu_2D': 84.03585153891522, 'diff_pct': 0.2973540231283378}}
+  gateB_diff_pct: 0.26098718407085997
+  gateB_pass: True
+  window_spread_pct: 0.00024014245868896349
+  window_flat_flag: True
+  energy_balance_pct: 0.00012133494105662646
+  fluent_mdot_half: 0.077224274
+  fluent_mdot_over_expected: 0.9999999946123923
+  T_out: 302.16645
+  dTb_expected: 2.1664526156129518
+  dTb_cfd: 2.1664499999999975
+  q_in_max_dev_from_expected_pct: 8.183739623862569e-06
+  f_cfd: 0.03453299729722057
+  f_correlation: 0.030563841752652934
+  delta_p_1p2_to_2p0: 83.76211
+  wall_T_spread_x3p5: 0.04879999999997153
+  inlet_velocity: 0.3741122576507258
+  yplus_avg: 0.071249156
+  yplus_max: 0.10622488
+  yplus_max_window: 0.071015969
+  mesh: B3D
+  turb: ke_rlz_ewt
+  cells: 449328
+  flow_iterations: 600
+  recipe_relax: 0.5
+  recipe_scale1: 0.1
+
+Gate B (Re10000_B3D): PASS  (Nu_3D 84.286 vs Nu_2D(M2) 84.066, +0.26 %, limit 2 %)
+Saved case and data to C:\Users\ADMIN\Downloads\Ternary nanofluid simulation\04_cases\gateB

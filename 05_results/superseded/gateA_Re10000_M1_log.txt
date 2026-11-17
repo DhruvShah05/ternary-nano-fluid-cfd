@@ -1,0 +1,78 @@
+Gate A Re10000_M1   mesh pipe2d_M1.msh   relax=0.5 scale1=0.1 scale2=(unchanged)
+Expected: re=10000, pr=5.8316, v=0.37304, mdot=0.15445, f=0.030564, nu_gnielinski=72.696, h_expected=1937.5, q_in_expected=9687.6, q_out=8912.6, q_total=1400, dTb_expected=2.168
+Expected inlet static pressure (gauge, outlet = 0): about 369 Pa (Darcy; developing flow adds a bit)
+Fluent transcript -> C:\Users\ADMIN\AppData\Local\Temp\fluent_transcript_Re10000_M1.txt (copied to 05_results at the end)
+Mesh read, axisymmetric, interface slit, energy on.
+Applying setup:
+  OK    viscous model k-omega SST
+  OK    material nf (water, constant)
+  OK    material copper from database
+  OK    fluid zone -> nf
+  OK    solid zone -> copper
+  OK    velocity inlet
+  OK    pressure outlet
+  OK    outer_heated heat flux
+  OK    adiabatic walls
+  OK    explicit relaxation 0.5
+  OK    residual targets, auto-stop OFF
+  OK    pseudo-time scale factor 0.1
+Initialising (flow-first: temperature equation OFF):
+  temperature equation -> OFF (via equations['temperature'] = ...)
+  patch T=300.0 OK with ['cell_zones', 'value', 'variable']
+Warm-up 50 iterations, then post-processing setup:
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 0.045736006, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+Flow stage (temperature equation OFF):
+Flow attempt 1/3: explicit relaxation 0.5, pseudo-time scale 0.1
+  flow it 100: p_in=382.281 Pa  m_in=0.15445  m_out=-0.15504  (out/in=1.004)  T_out=300.0000
+  flow it 200: p_in=403.815 Pa  m_in=0.15445  m_out=-0.15449  (out/in=1.000)  T_out=300.0000
+  flow it 300: p_in=404.298 Pa  m_in=0.15445  m_out=-0.15445  (out/in=1.000)  T_out=300.0000
+  flow it 400: p_in=404.276 Pa  m_in=0.15445  m_out=-0.15445  (out/in=1.000)  T_out=300.0000
+  flow it 500: p_in=404.272 Pa  m_in=0.15445  m_out=-0.15445  (out/in=1.000)  T_out=300.0000
+  flow it 600: p_in=404.272 Pa  m_in=0.15445  m_out=-0.15445  (out/in=1.000)  T_out=300.0000
+  flow settled after 600 its with relax=0.5, scale=0.1
+Energy stage (temperature equation ON):
+  temperature equation -> ON (via equations['temperature'] = ...)
+  iterations: 100   T_out = 300.6630 K
+  iterations: 200   T_out = 301.4662 K
+  iterations: 300   T_out = 302.0978 K
+  iterations: 400   T_out = 302.1674 K
+  iterations: 500   T_out = 302.1680 K
+  it 600: Nu_win=85.0871 Tout=302.16800 eb=0.0000% {}
+  it 700: Nu_win=85.0871 Tout=302.16800 eb=0.0000% {}
+  it 800: Nu_win=85.0871 Tout=302.16800 eb=0.0000% {}
+  it 900: Nu_win=85.0871 Tout=302.16800 eb=0.0000% {'dT_rel': 0.0, 'dNu_rel': 0.0, 'eb': 1.985135697526251e-08}
+Finished: 1550 iterations (flow 600 + energy 900), converged=True, wall time 2.4 min
+
+==== RESULT ====
+  tag: Re10000_M1
+  Re: 10000.0
+  converged: True
+  iterations: 1550
+  Nu_window: 85.0870947730777
+  Nu_heated_avg: 86.17518919668832
+  Nu_gnielinski: 72.6964083636404
+  gateA_error_pct: 17.044427212217794
+  gateA_pass: False
+  window_spread_pct: 0.036490539135970564
+  window_flat_flag: True
+  energy_balance_pct: 1.985135697526251e-06
+  fluent_mdot_over_expected: 1.0000000075616884
+  T_out: 302.168
+  dTb_expected: 2.168000121475595
+  dTb_cfd: 2.1680000000000064
+  q_in_max_dev_from_expected_pct: 0.0004066317909342089
+  f_cfd: 0.0328364755931314
+  f_correlation: 0.030563841752652934
+  delta_p_1p2_to_2p0: 79.19321000000002
+  yplus_avg: 0.069582881
+  yplus_max: 0.13228959
+  yplus_max_window: 0.06965889
+  recipe_relax: 0.5
+  recipe_scale1: 0.1
+  flow_iterations: 600
+
+Gate A (Re10000_M1): FAIL  (Nu_CFD 85.09 vs Gnielinski 72.70, +17.04 %)
+Saved case and data to C:\Users\ADMIN\Downloads\Ternary nanofluid simulation\04_cases\gateA

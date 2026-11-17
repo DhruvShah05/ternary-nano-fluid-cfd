@@ -1,0 +1,37 @@
+Turbulence: ke_std_swf {'model': 'k-epsilon', 'variant': 'standard', 'wall': 'standard-wall-fn', 'wall_function': True}
+Gate A Re10000_M2WF_ke_std_swf_TEST   mesh pipe2d_M2WF.msh   relax=0.5 scale1=0.1 scale2=(unchanged)
+Expected: re=10000, pr=5.8316, v=0.37304, mdot=0.15445, f=0.030564, nu_gnielinski=72.696, h_expected=1937.5, q_in_expected=9687.6, q_out=8912.6, q_total=1400, dTb_expected=2.168
+Expected inlet static pressure (gauge, outlet = 0): about 369 Pa (Darcy; developing flow adds a bit)
+Fluent transcript -> C:\Users\ADMIN\AppData\Local\Temp\fluent_transcript_Re10000_M2WF_ke_std_swf_TEST.txt (copied to 05_results at the end)
+Mesh read, axisymmetric, interface slit, energy on.
+Applying setup:
+    verified: model=k-epsilon variant=standard wall_treatment=standard-wall-fn Pr_t(energy)=0.85 Pr_t(wall)=0.85
+  OK    viscous model ke_std_swf
+  OK    material nf (water, constant)
+  OK    material copper from database
+  OK    fluid zone -> nf
+  OK    solid zone -> copper
+  OK    velocity inlet
+  OK    pressure outlet
+  OK    outer_heated heat flux
+  OK    adiabatic walls
+  OK    explicit relaxation 0.5
+  OK    residual targets, auto-stop OFF
+  OK    pseudo-time scale factor 0.1
+Initialising (flow-first: temperature equation OFF):
+  temperature equation -> OFF (via equations['temperature'] = ...)
+  patch T=300.0 OK with ['cell_zones', 'value', 'variable']
+Warm-up 50 iterations, then post-processing setup:
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 29.47861, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+Flow stage (temperature equation OFF):
+  test flow probe: {'p_in': 400.01063, 'm_in': 0.15444855, 'm_out': -0.15676306, 'T_out': 300.0}
+Energy stage (temperature equation ON):
+  temperature equation -> ON (via equations['temperature'] = ...)
+  snapshot: Nu_win=1449.453  energy balance=78.684%  T_out=300.4621
+  balance detail: {'T_in_meas': 300.0, 'T_out': 300.46213, 'mdot_fluent': 0.15444855, 'Q_wall_fluent': 1399.9847, 'Q_enthalpy': 298.4201644684827, 'eb': 0.786840410135566}
+  sample band: {'i': 20, 'x': 3.025, 'Tb': 300.46697, 'Tw': 300.71843, 'q': 9688.3733, 'Nu': 1445.6039106819585}
+  y+: {'yplus_avg': 29.384344, 'yplus_max': 31.915346, 'yplus_max_window': 29.351343}
+TEST DONE.

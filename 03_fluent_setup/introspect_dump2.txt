@@ -1,0 +1,342 @@
+
+##### setup.models.energy
+child_names: ['enabled', 'viscous_dissipation', 'pressure_work', 'kinetic_energy', 'inlet_diffusion', 'two_temperature']
+command_names: []
+{'enabled': True, 'inlet_diffusion': True, 'kinetic_energy': False, 'pressure_work': False, 'viscous_dissipation': False}
+
+##### materials.fluid['air'] (energy on)
+child_names: ['name', 'chemical_formula', 'density', 'viscosity', 'specific_heat', 'thermal_conductivity', 'molecular_weight', 'premix_laminar_speed', 'premix_critical_strain', 'premix_unburnt_temp', 'premix_unburnt_density', 'premix_heat_trans_coeff', 'premix_heat_of_comb', 'premix_unburnt_fuel_mf', 'premix_adiabatic_temp', 'therm_exp_coeff', 'characteristic_vibrational_temperature', 'reference_diameter', 'viscosity_reference_temperature', 'viscosity_temperature_index', 'rotational_degrees_of_freedom', 'rotational_collision_number', 'vibrational_collision_number', 'absorption_coefficient', 'melting_heat', 'tsolidus', 'tliqidus', 'liquidus_slope', 'partition_coeff', 'eutectic_mf', 'solid_diffusion', 'solut_exp_coeff', 'scattering_coefficient', 'scattering_phase_function', 'refractive_index', 'formation_entropy', 'formation_enthalpy', 'reference_temperature', 'lennard_jones_length', 'lennard_jones_energy', 'thermal_accom_coefficient', 'velocity_accom_coefficient', 'degrees_of_freedom', 'electric_conductivity', 'dual_electric_conductivity', 'lithium_diffusivity', 'magnetic_permeability', 'speed_of_sound', 'critical_temperature', 'critical_pressure', 'critical_volume', 'acentric_factor', 'latent_heat', 'saturation_pressure', 'vaporization_temperature', 'charge', 'uds_diffusivity']
+command_names: []
+{'chemical_formula': '',
+ 'density': {'option': 'value', 'value': 1.225},
+ 'name': 'air',
+ 'specific_heat': {'option': 'value', 'value': 1006.43},
+ 'thermal_conductivity': {'option': 'value', 'value': 0.0242},
+ 'viscosity': {'option': 'value', 'value': 1.7894e-05}}
+
+##### materials.solid['aluminum'] (energy on)
+child_names: ['name', 'chemical_formula', 'density', 'specific_heat', 'thermal_conductivity', 'atomic_number', 'absorption_coefficient', 'scattering_coefficient', 'scattering_phase_function', 'refractive_index', 'electric_conductivity', 'dual_electric_conductivity', 'lithium_diffusivity', 'magnetic_permeability', 'struct_youngs_modulus', 'struct_poisson_ratio', 'struct_start_temperature', 'struct_thermal_expansion', 'struct_damping_alpha', 'struct_damping_beta', 'uds_diffusivity']
+command_names: []
+{'chemical_formula': 'al',
+ 'density': {'option': 'value', 'value': 2719},
+ 'name': 'aluminum',
+ 'specific_heat': {'option': 'value', 'value': 871},
+ 'thermal_conductivity': {'option': 'value', 'value': 202.4}}
+
+##### materials.fluid.air.density
+child_names: ['option', 'real_gas_nist', 'value', 'compressible_liquid', 'piecewise_linear', 'piecewise_polynomial', 'polynomial', 'user_defined_function', 'rgp_table']
+command_names: []
+{'option': 'value', 'value': 1.225}
+
+##### materials.fluid.air.viscosity
+child_names: ['option', 'value', 'piecewise_linear', 'piecewise_polynomial', 'polynomial', 'power_law', 'blottner_curve_fit', 'gupta_curve_fit_viscosity', 'sutherland', 'cross', 'herschel_bulkley', 'carreau', 'non_newtonian_power_law', 'user_defined_function', 'rgp_table', 'real_gas_nist']
+command_names: []
+{'option': 'value', 'value': 1.7894e-05}
+
+##### materials.database command names
+child_names: ['database_type', 'user_db_name', 'list_by_type']
+command_names: ['copy_materials', 'list_materials', 'list_properties', 'copy_by_name', 'copy_by_formula']
+
+##### cell_zone_conditions.fluid['fluid']
+child_names: ['name', 'phase', 'general', 'conical', 'reference_frame', 'mesh_motion', 'zonal_models', 'porous_zone', 'fan_zone', 'embedded_les', 'reaction', 'sources', 'fixed_values', 'multiphase', 'disabled']
+command_names: ['display', 'create_surface']
+{'fixed_values': {'enable': False},
+ 'general': {'laminar': False, 'material': 'air'},
+ 'mesh_motion': {'enable': False},
+ 'name': 'fluid',
+ 'porous_zone': {'porous': False},
+ 'reference_frame': {'frame_motion': False},
+ 'sources': {'enable': False},
+ 'zonal_models': {}}
+
+##### bc.velocity_inlet['inlet'].thermal
+child_names: ['temperature', 'thermodynamic_non_equilibrium_boundary', 'vibrational_electronic_temperature']
+command_names: []
+{'temperature': {'option': 'value', 'value': 300}}
+
+##### bc.velocity_inlet['inlet'].turbulence
+child_names: ['les_spec', 'fluctuating_velocity_algorithm', 'number_of_fourier_modes', 'number_of_vortices', 'streamwise_fluctuations', 'satisfy_mass_conservation', 'scale_search_limiter', 'stg_turbulent_intensity', 'stg_turbulent_viscosity_ratio', 'wall_distance', 'volumetric_forcing', 'forcing_zone_thickness', 'volumetric_thickness', 'turbulence_specification', 'modified_turbulent_viscosity', 'laminar_kinetic_energy', 'intermittency', 'turbulent_kinetic_energy', 'turbulent_dissipation_rate', 'specific_dissipation_rate', 'velocity_variance_scale', 'turbulent_intensity', 'turbulent_length_scale', 'hydraulic_diameter', 'turbulent_viscosity_ratio', 'turbulent_viscosity_ratio_profile', 'reynolds_stress_specification', 'uu_reynolds_stresses', 'vv_reynolds_stresses', 'ww_reynolds_stresses', 'uv_reynolds_stresses', 'vw_reynolds_stresses', 'uw_reynolds_stresses', 'subgrid_kinetic_energy_specification', 'subgrid_kinetic_energy', 'subgrid_turbulent_intensity']
+command_names: []
+{'turbulence_specification': 'Intensity and Viscosity Ratio', 'turbulent_intensity': 0.05, 'turbulent_viscosity_ratio': 10}
+
+##### bc.pressure_outlet['outlet'].thermal
+child_names: ['backflow_total_temperature']
+command_names: []
+{'backflow_total_temperature': {'option': 'value', 'value': 300}}
+
+##### bc.wall['outer_heated'].thermal
+child_names: ['thermal_condition', 'material', 'heat_flux', 'temperature', 'heat_transfer_coeff', 'free_stream_temp', 'external_emissivity', 'ext_rad_temperature', 'wall_thickness_old', 'wall_thickness', 'heat_generation_rate', 'enable_shell_conduction', 'conduction_layers', 'thin_wall', 'radiating_to_fixed_temp', 'internal_radiation_temp', 'area_enhancement_factor', 'contact_resistance', 'therm_accom_coef', 'eve_accom_coef', 'caf', 'thermal_stabilization', 'scale_factor', 'stab_method', 'boundary_advection']
+command_names: []
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_flux': {'option': 'value', 'value': 0},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Heat Flux',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### bc.wall['outer_unheated'].thermal
+child_names: ['thermal_condition', 'material', 'heat_flux', 'temperature', 'heat_transfer_coeff', 'free_stream_temp', 'external_emissivity', 'ext_rad_temperature', 'wall_thickness_old', 'wall_thickness', 'heat_generation_rate', 'enable_shell_conduction', 'conduction_layers', 'thin_wall', 'radiating_to_fixed_temp', 'internal_radiation_temp', 'area_enhancement_factor', 'contact_resistance', 'therm_accom_coef', 'eve_accom_coef', 'caf', 'thermal_stabilization', 'scale_factor', 'stab_method', 'boundary_advection']
+command_names: []
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_flux': {'option': 'value', 'value': 0},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Heat Flux',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### bc.wall['solid_end_in'].thermal
+child_names: ['thermal_condition', 'material', 'heat_flux', 'temperature', 'heat_transfer_coeff', 'free_stream_temp', 'external_emissivity', 'ext_rad_temperature', 'wall_thickness_old', 'wall_thickness', 'heat_generation_rate', 'enable_shell_conduction', 'conduction_layers', 'thin_wall', 'radiating_to_fixed_temp', 'internal_radiation_temp', 'area_enhancement_factor', 'contact_resistance', 'therm_accom_coef', 'eve_accom_coef', 'caf', 'thermal_stabilization', 'scale_factor', 'stab_method', 'boundary_advection']
+command_names: []
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_flux': {'option': 'value', 'value': 0},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Heat Flux',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### bc.wall['interface_fs'].thermal
+child_names: ['thermal_condition', 'material', 'heat_flux', 'temperature', 'heat_transfer_coeff', 'free_stream_temp', 'external_emissivity', 'ext_rad_temperature', 'wall_thickness_old', 'wall_thickness', 'heat_generation_rate', 'enable_shell_conduction', 'conduction_layers', 'thin_wall', 'radiating_to_fixed_temp', 'internal_radiation_temp', 'area_enhancement_factor', 'contact_resistance', 'therm_accom_coef', 'eve_accom_coef', 'caf', 'thermal_stabilization', 'scale_factor', 'stab_method', 'boundary_advection']
+command_names: []
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Coupled',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### bc.wall['interface_fs-shadow'].thermal
+child_names: ['thermal_condition', 'material', 'heat_flux', 'temperature', 'heat_transfer_coeff', 'free_stream_temp', 'external_emissivity', 'ext_rad_temperature', 'wall_thickness_old', 'wall_thickness', 'heat_generation_rate', 'enable_shell_conduction', 'conduction_layers', 'thin_wall', 'radiating_to_fixed_temp', 'internal_radiation_temp', 'area_enhancement_factor', 'contact_resistance', 'therm_accom_coef', 'eve_accom_coef', 'caf', 'thermal_stabilization', 'scale_factor', 'stab_method', 'boundary_advection']
+command_names: []
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Coupled',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### bc.wall['interface_fs'] full
+child_names: ['name', 'phase', 'momentum', 'turbulence', 'thermal', 'radiation', 'species', 'discrete_phase', 'wall_film', 'multiphase', 'potential', 'structure', 'uds', 'icing', 'ablation', 'geometry']
+command_names: ['display', 'create_surface']
+{'momentum': {'shear_condition': 'No Slip', 'wall_motion': 'Stationary Wall'},
+ 'name': 'interface_fs',
+ 'thermal': {'caf': {'option': 'value', 'value': 1},
+             'heat_generation_rate': {'option': 'value', 'value': 0},
+             'material': 'aluminum',
+             'thermal_condition': 'Coupled',
+             'wall_thickness': {'option': 'value', 'value': 0}},
+ 'turbulence': {'roughness_const': {'option': 'value', 'value': 0.5},
+                'roughness_height': {'option': 'value', 'value': 0},
+                'roughness_model': 'Standard'}}
+
+##### models.viscous (energy on)
+child_names: ['model', 'spalart_allmaras_production', 'k_epsilon_model', 'k_omega_model', 'k_omega', 'geko', 'k_epsilon', 'reynolds_stress', 'subgrid_scale_model', 'les_model_options', 'reynolds_stress_options', 'near_wall_treatment', 'rans', 'des', 'transition_module', 'hybrid_rans_les', 'sbes', 'user_defined_transition', 'options', 'multiphase_turbulence', 'turbulence_expert', 'transition', 'transition_sst', 'user_defined_functions', 'sa_enhanced_wall_treatment', 'sa_damping']
+command_names: []
+{'k_omega': {'coefficients': {'a1': 0.31,
+                              'alpha_inf': 0.52,
+                              'alpha_star_inf': 1.0,
+                              'beta_star_inf': 0.09,
+                              'k_epsilon_regime': {'beta_i': 0.0828, 'sdr_prandtl_number': 1.168, 'tke_prandtl_number': 1.0},
+                              'k_omega_regime': {'beta_i': 0.075, 'sdr_prandtl_number': 2.0, 'tke_prandtl_number': 1.176}},
+             'k_omega_low_re_correction': False},
+ 'k_omega_model': 'sst',
+ 'model': 'k-omega',
+ 'near_wall_treatment': {'wall_omega_treatment': 'correlation'},
+ 'options': {'production_kato_launder_enabled': False,
+             'production_limiter': {'clip_factor': 10.0, 'enabled': True},
+             'turbulent_prandtl_numbers': {'energy_prandtl_number': {'option': 'constant', 'value': 0.85},
+                                           'wall_prandtl_number': {'option': 'constant', 'value': 0.85}},
+             'viscous_heating': False},
+ 'transition_module': 'none',
+ 'turbulence_expert': {'restore_sst_v61': False, 'thermal_p_function': True, 'turb_non_newtonian': False},
+ 'user_defined_functions': {'energy_prandtl': 'none', 'turb_visc': 'none', 'wall_prandtl': 'none'}}
+
+##### solution.methods (energy on)
+child_names: ['axisymmetric', 'p_v_coupling', 'spatial_discretization', 'spatial_discretization_parameters', 'pseudo_time_method', 'transient_formulation', 'unsteady_global_time', 'accelerated_non_iterative_time_marching', 'convergence_acceleration_for_stretched_meshes', 'divergence_prevention', 'expert', 'frozen_flux', 'high_order_term_relaxation', 'multiphase_numerics', 'nb_gradient_boundary_option', 'nita', 'nita_expert_controls', 'overset', 'phase_based_vof_discretization', 'reduced_rank_extrapolation', 'reduced_rank_extrapolation_options', 'use_limiter_in_time', 'vof_numerics', 'warped_face_gradient_correction', 'high_speed_numerics', 'species_disc_together', 'poor_mesh_robustness', 'poor_mesh_numerics', 'turbo_numerics']
+command_names: ['set_solution_methods_to_default', 'set_optimized_les_numerics']
+{'expert': {'disable_rhie_chow_flux': False,
+            'first_to_second_order_blending': 1.0,
+            'implicit_bodyforce_treatment': False,
+            'physical_velocity_formulation': False,
+            'presto_pressure_scheme': False,
+            'velocity_formulation': 'absolute'},
+ 'high_order_term_relaxation': {'enable': False, 'relaxation_factor': 0.25, 'select_variables': 'flow-variables', 'type': 'standard'},
+ 'p_v_coupling': {'flow_scheme': 'Coupled', 'flux_auto_select': True, 'flux_type': 'Rhie-Chow: momentum based'},
+ 'poor_mesh_numerics': {'cell_quality_based': False,
+                        'gradient_quality_based': False,
+                        'reset_poor_elements': False,
+                        'solution_and_quality_based': False,
+                        'turbulence_production_term': True},
+ 'pseudo_time_method': {'formulation': {'coupled_solver': 'global-time-step'}},
+ 'spatial_discretization': {'discretization_scheme': {'k': 'second-order-upwind',
+                                                      'mom': 'second-order-upwind',
+                                                      'omega': 'second-order-upwind',
+                                                      'pressure': 'second-order',
+                                                      'temperature': 'second-order-upwind'},
+                            'gradient_scheme': 'least-square-cell-based'},
+ 'warped_face_gradient_correction': {'enable': False}}
+
+##### solution.controls.equations
+command_names: ['create', 'delete', 'rename', 'list', 'list_properties', 'make_a_copy']
+{'flow': True, 'kw': True, 'temperature': True}
+
+##### solution.controls.under_relaxation
+command_names: ['create', 'delete', 'rename', 'list', 'list_properties', 'make_a_copy']
+FAILED: RuntimeError: api-get-var: the object is not active
+Error Object: solution/controls/under-relaxation
+
+##### solution.controls.pseudo_time_method_local_time_step
+child_names: ['pseudo_time_courant_number', 'pseudo_time_step_method_solid_zone', 'time_step_size_scale_factor']
+command_names: []
+FAILED: RuntimeError: api-get-var: the object is not active
+Error Object: solution/controls/pseudo-time-method-local-time-step
+
+##### solution.controls.pseudo_time_explicit_relaxation_factor
+child_names: ['local_dt_dualts_relax', 'global_dt_pseudo_relax']
+command_names: []
+{'global_dt_pseudo_relax': {'body-force': 1.0, 'density': 1.0, 'k': 0.75, 'omega': 0.75, 'temperature': 0.75, 'turb-viscosity': 1.0}}
+
+##### solution.controls.p_v_controls
+child_names: ['skewness_correction_itr_count', 'neighbor_correction_itr_count', 'skewness_neighbor_coupling', 'vof_correction_itr_count', 'flow_courant_number', 'volume_fraction_courant_number', 'explicit_pressure_under_relaxation', 'explicit_momentum_under_relaxation', 'explicit_volume_fraction_under_relaxation']
+command_names: []
+{'explicit_momentum_under_relaxation': 0.5, 'explicit_pressure_under_relaxation': 0.5}
+
+##### solution.controls.courant_number
+FAILED: RuntimeError: api-get-var: the object is not active
+Error Object: solution/controls/courant-number
+
+##### solution.run_calculation.pseudo_time_settings
+child_names: ['time_step_method']
+command_names: []
+{'time_step_method': {'auto_time_size_calc_solid_zone': True,
+                      'length_scale_methods': 'conservative',
+                      'time_solid_scale_factor': 1.0,
+                      'time_step_method': 'automatic',
+                      'time_step_size_scale_factor': 1.0,
+                      'verbosity': 0}}
+
+##### solution.run_calculation.parameters
+child_names: ['period', 'frequency', 'time_steps_per_period', 'time_step_count', 'error_tolerance', 'incremental_time', 'total_time_step_count', 'total_time', 'time_step_size', 'total_periods', 'global_courant_number', 'courant_number', 'fixed_time_step_size', 'initial_time_step_size', 'iter_count', 'max_iter_per_time_step', 'reporting_interval', 'profile_update_interval', 'update_interval', 'adaptive_time_stepping']
+command_names: []
+{'iter_count': 0, 'profile_update_interval': 1, 'reporting_interval': 1}
+
+##### solution.run_calculation.iterate args
+argument_names: ['iter_count']
+
+##### solution.run_calculation.calculate args
+argument_names: []
+
+##### solution.initialization
+child_names: ['initialization_type', 'reference_frame', 'defaults', 'localized_turb_init', 'hybrid_init_options', 'patch', 'open_channel_auto_init', 'fmg', 'enable_profile_memory_flushing', 'species_selection']
+command_names: ['initialize', 'compute_defaults', 'standard_initialize', 'hybrid_initialize', 'list_defaults', 'init_turb_vel_fluctuations', 'init_flow_statistics', 'show_iterations_sampled', 'show_time_sampled', 'dpm_reset', 'lwf_reset', 'init_lwf', 'init_acoustics_options', 'levelset_auto_init', 'reset_initialization']
+{'enable_profile_memory_flushing': False,
+ 'hybrid_init_options': {'general_settings': {'explicit_urf': [1.0, 1.0],
+                                              'initialization_options': {'const_velocity': False, 'external_aero': False, 'initial_pressure': False},
+                                              'iter_count': 10},
+                         'turbulent_setting': {'averaged_turbulent_parameters': True}},
+ 'initialization_type': 'hybrid',
+ 'reference_frame': 'relative'}
+
+##### solution.initialization.patch (names)
+child_names: ['vof_smooth_options']
+command_names: ['calculate_patch']
+
+##### solution.initialization.hybrid_initialize args
+argument_names: []
+
+##### solution.monitor.residual
+child_names: ['equations', 'options', 'axes', 'curves']
+command_names: ['reset', 'renormalize', 'plot', 'write']
+{'axes': {'x': {'auto_range': {'max_auto': True, 'min_auto': True},
+                'label': '',
+                'log_scale': False,
+                'number_format': {'format_type': 'float', 'precision': 0},
+                'show_major_gridlines': False,
+                'show_minor_gridlines': False},
+          'y': {'auto_range': {'max_auto': True, 'min_auto': True},
+                'label': '',
+                'log_scale': True,
+                'number_format': {'format_type': 'exponential', 'precision': 0},
+                'show_major_gridlines': False,
+                'show_minor_gridlines': False}},
+ 'curves': {'continuity': {'line': {'color': 'monte carlo green', 'pattern': '----', 'weight': 2},
+                           'line_in_file': {'pattern': ''},
+                           'marker': {'symbol': ''},
+                           'marker_in_file': {'color': 'monte carlo green', 'size': 0.3, 'symbol': '(*)'}},
+            'energy': {'line': {'color': 'lavender gray', 'pattern': '----', 'weight': 2},
+                       'line_in_file': {'pattern': ''},
+                       'marker': {'symbol': ''},
+                       'marker_in_file': {'color': 'lavender gray', 'size': 0.3, 'symbol': '(*)'}},
+            'k': {'line': {'color': 'scarlet red', 'pattern': '----', 'weight': 2},
+                  'line_in_file': {'pattern': ''},
+                  'marker': {'symbol': ''},
+                  'marker_in_file': {'color': 'scarlet red', 'size': 0.3, 'symbol': '(*)'}},
+            'omega': {'line': {'color': 'grayish blue', 'pattern': '----', 'weight': 2},
+                      'line_in_file': {'pattern': ''},
+                      'marker': {'symbol': ''},
+                      'marker_in_file': {'color': 'grayish blue', 'size': 0.3, 'symbol': '(*)'}},
+            'x-velocity': {'line': {'color': 'flush orange', 'pattern': '----', 'weight': 2},
+                           'line_in_file': {'pattern': ''},
+                           'marker': {'symbol': ''},
+                           'marker_in_file': {'color': 'flush orange', 'size': 0.3, 'symbol': '(*)'}},
+            'y-velocity': {'line': {'color': 'lime green', 'pattern': '----', 'weight': 2},
+                           'line_in_file': {'pattern': ''},
+                           'marker': {'symbol': ''},
+                           'marker_in_file': {'color': 'lime green', 'size': 0.3, 'symbol': '(*)'}}},
+ 'equations': {'continuity': {'absolute_criteria': 0.001, 'check_convergence': True, 'monitor': True},
+               'energy': {'absolute_criteria': 1e-06, 'check_convergence': True, 'monitor': True},
+               'k': {'absolute_criteria': 0.001, 'check_convergence': True, 'monitor': True},
+               'omega': {'absolute_criteria': 0.001, 'check_convergence': True, 'monitor': True},
+               'x-velocity': {'absolute_criteria': 0.001, 'check_convergence': True, 'monitor': True},
+               'y-velocity': {'absolute_criteria': 0.001, 'check_convergence': True, 'monitor': True}},
+ 'options': {'criterion_type': 'absolute',
+             'n_display': 1000,
+             'n_save': 1000,
+             'normalize': False,
+             'plot': True,
+             'print': True,
+             'residual_values': {'compute_local_scale': False, 'scale_residuals': True}}}
+
+##### solution.monitor.report_files (names)
+command_names: ['create', 'delete', 'rename', 'list', 'list_properties', 'make_a_copy', 'delete_all', 'clear_data']
+
+##### solution.monitor.convergence_conditions
+child_names: ['convergence_reports', 'frequency', 'condition', 'check_for']
+command_names: []
+{'condition': 'all-conditions-are-met', 'convergence_reports': {}, 'frequency': 1}
+
+##### solution.report_definitions (names)
+child_names: ['mesh', 'surface', 'volume', 'force', 'lift', 'drag', 'moment', 'time', 'flux', 'vbm', 'injection', 'user_defined', 'aeromechanics', 'icing', 'expression', 'single_valued_expression', 'custom']
+command_names: ['delete', 'compute', 'copy', 'delete_all']
+
+##### results.report.surface_integrals.area_weighted_avg
+argument_names: ['surface_names', 'locations', 'cust_vec_func', 'report_of', 'current_domain', 'write_to_file', 'file_name', 'append_data']
+
+##### results.report.surface_integrals.mass_weighted_avg
+argument_names: ['surface_names', 'locations', 'cust_vec_func', 'report_of', 'current_domain', 'write_to_file', 'file_name', 'append_data']
+
+##### results.report.surface_integrals.integral
+argument_names: ['surface_names', 'locations', 'cust_vec_func', 'report_of', 'current_domain', 'write_to_file', 'file_name', 'append_data']
+
+##### results.report.fluxes.heat_transfer
+argument_names: ['domain', 'zones', 'locations', 'write_to_file', 'file_name', 'append_data']
+
+##### results.report.fluxes.mass_flow
+argument_names: ['domain', 'zones', 'locations', 'write_to_file', 'file_name', 'append_data']
+
+##### file.write_case_data args
+argument_names: ['file_name']
+
+##### create plane_surface
+FAILED: RuntimeError: api-checks-before-command-or-query: object is not active
+Error Object: results/surfaces/plane-surface
+
+##### create iso_surface
+FAILED: RuntimeError: api-checks-before-command-or-query: object is not active
+Error Object: results/surfaces/iso-surface
+
+##### create iso_clip
+FAILED: RuntimeError: api-checks-before-command-or-query: object is not active
+Error Object: results/surfaces/iso-clip
+
+##### surfaces.zone_surface['tmp_zone_surface']
+child_names: ['name', 'zone_name']
+command_names: ['display']
+{'name': 'tmp_zone_surface', 'zone_name': ''}

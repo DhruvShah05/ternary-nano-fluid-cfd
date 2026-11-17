@@ -1,0 +1,310 @@
+Transcript Start Time:  12:52:26, 16 Nov 2026 India Standard Time 
+Current Directory: "C:\Users\ADMIN\Downloads\Ternary nanofluid simulation"
+
+Build Time: Feb  2 2026 16:32:00 EST  Build Id: 10262 
+Executable Path: C:/PROGRA~1/ANSYSI~1/ANSYSS~1/v261/fluent/ntbin/win64/fluent.exe
+
+----------------------------------------------------------------------------------
+ID    Hostname   Core  O.S.         PID    CPU Model Name                        
+----------------------------------------------------------------------------------
+n3    Techlab53  4/24  Windows-x64  2464   AMD Ryzen 9 7900X 12-Core Processor   
+n2    Techlab53  3/24  Windows-x64  6840   AMD Ryzen 9 7900X 12-Core Processor   
+n1    Techlab53  2/24  Windows-x64  20168  AMD Ryzen 9 7900X 12-Core Processor   
+n0*   Techlab53  1/24  Windows-x64  23420  AMD Ryzen 9 7900X 12-Core Processor   
+host  Techlab53        Windows-x64  19936  AMD Ryzen 9 7900X 12-Core Processor   
+
+MPI Option Selected: intel
+Selected system interconnect: default
+----------------------------------------------------------------------------------
+
+Cortex Process ID: 30464 
+License Server Path: () 
+Reading "C:\Users\ADMIN\Downloads\Ternary nanofluid simulation\02_geometry_mesh\3d\pipe3d_B3D_tiny.msh"...
+Buffering for file scan...
+
+   10351 nodes.
+    7920 hexahedral cells, zone  2.
+     960 hexahedral cells, zone  3.
+   22488 quadrilateral interior faces, zone  4.
+    2504 quadrilateral interior faces, zone  5.
+     240 quadrilateral interior faces, zone  6.
+     792 quadrilateral velocity-inlet faces, zone  7.
+     792 quadrilateral pressure-outlet faces, zone  8.
+      96 quadrilateral wall faces, zone  9.
+      96 quadrilateral wall faces, zone 10.
+     120 quadrilateral wall faces, zone 11.
+      30 quadrilateral wall faces, zone 12.
+      30 quadrilateral wall faces, zone 13.
+      30 quadrilateral wall faces, zone 14.
+      30 quadrilateral wall faces, zone 15.
+     720 quadrilateral symmetry faces, zone 16.
+      80 quadrilateral symmetry faces, zone 17.
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+		faces....,
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 225/113 = 1.99115
+Info: The mesh contains elements that are invalid or of poor quality.
+
+      A different numerical scheme will be applied to these elements,
+      which may affect the quality of the solution. It is recommended
+      that you consider removing the invalid and poor quality elements
+      in the mesh.
+
+      For more information on the invalid and poor quality elements,
+      please use the following TUI commands:
+
+      /mesh/check
+      /mesh/repair-improve/report-poor-elements.
+WARNING: 8880 cells with non-positive volume detected.
+     materials,
+     interface,
+     domains,
+     zones,
+	symmetry_solid
+	symmetry_fluid
+	outer_q4
+	outer_q3
+	outer_q2
+	outer_q1
+	outer_unheated
+	solid_end_out
+	solid_end_in
+	outlet
+	inlet
+	interface_fs
+	interior_solid
+	interior_fluid
+	solid
+	fluid
+Warning: Face zone 6 of type interior is between cell zones with different materials.
+         Material of cell zone 2 is air, while material of cell zone 3 is aluminum.
+This will adversely affect the solution. It is recommended that you check and correct the cell zone materials, or convert the interior face zones noted above into coupled wall pairs using the following text command:
+         /mesh/modify-zones/slit-interior-between-diff-materials
+
+     parallel,
+Done.
+
+    changed zone interface_fs (id=6) from type interior to wall
+        creating interface_fs-shadow
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 4.000000e+00
+   y-coordinate: min (m) = -1.250000e-02, max (m) = 1.250000e-02
+   z-coordinate: min (m) = 0.000000e+00, max (m) = 1.250000e-02
+ Volume statistics:
+WARNING: 8880 cells with non-positive volume detected.
+   minimum volume (m3): -5.413673e-07
+   maximum volume (m3): -3.001450e-09
+     total volume (m3): -9.789464e-04
+ Face area statistics:
+   minimum face area (m2): 7.503624e-09
+   maximum face area (m2): 6.540313e-04
+ Checking mesh.............
+WARNING: left-handed faces detected on zone   4:     0 right-handed,  4959 left-handed.
+WARNING: left-handed faces detected on zone   5:     0 right-handed,  1272 left-handed.
+WARNING: left-handed faces detected on zone   6:     0 right-handed,   120 left-handed.
+WARNING: left-handed faces detected on zone  18:     0 right-handed,   120 left-handed.
+WARNING: left-handed faces detected on zone   7:     0 right-handed,   171 left-handed.
+WARNING: left-handed faces detected on zone   8:     0 right-handed,   171 left-handed.
+WARNING: left-handed faces detected on zone   9:     0 right-handed,    48 left-handed.
+WARNING: left-handed faces detected on zone  10:     0 right-handed,    48 left-handed.
+WARNING: left-handed faces detected on zone  11:     0 right-handed,    60 left-handed.
+WARNING: left-handed faces detected on zone  12:     0 right-handed,    30 left-handed.
+WARNING: left-handed faces detected on zone  13:     0 right-handed,    30 left-handed.
+WARNING: left-handed faces detected on zone  16:     0 right-handed,   150 left-handed.
+WARNING: left-handed faces detected on zone  17:     0 right-handed,    40 left-handed..
+WARNING: 10260 face(s) on cell zone   2 with wrong node order (on 0)
+WARNING:  2880 face(s) on cell zone   3 with wrong node order (on 0)...
+WARNING: Detected degenerate 8880 cells..........................
+ Done.
+
+WARNING: Mesh check failed.
+
+WARNING: left-handed faces detected on zone   4:     0 right-handed,  6606 left-handed.
+WARNING: left-handed faces detected on zone   7:     0 right-handed,   224 left-handed.
+WARNING: left-handed faces detected on zone   8:     0 right-handed,   224 left-handed.
+WARNING: left-handed faces detected on zone  16:     0 right-handed,   190 left-handed.
+WARNING: 13440 face(s) on cell zone   2 with wrong node order (on 1)
+WARNING: left-handed faces detected on zone   4:     0 right-handed,  6500 left-handed.
+WARNING: left-handed faces detected on zone   7:     0 right-handed,   225 left-handed.
+WARNING: left-handed faces detected on zone   8:     0 right-handed,   220 left-handed.
+WARNING: left-handed faces detected on zone  16:     0 right-handed,   244 left-handed.
+WARNING: 13320 face(s) on cell zone   2 with wrong node order (on 2)
+WARNING: left-handed faces detected on zone   4:     0 right-handed,  5102 left-handed.
+WARNING: left-handed faces detected on zone   5:     0 right-handed,  1272 left-handed.
+WARNING: left-handed faces detected on zone   6:     0 right-handed,   120 left-handed.
+WARNING: left-handed faces detected on zone  18:     0 right-handed,   120 left-handed.
+WARNING: left-handed faces detected on zone   7:     0 right-handed,   172 left-handed.
+WARNING: left-handed faces detected on zone   8:     0 right-handed,   177 left-handed.
+WARNING: left-handed faces detected on zone   9:     0 right-handed,    48 left-handed.
+WARNING: left-handed faces detected on zone  10:     0 right-handed,    48 left-handed.
+WARNING: left-handed faces detected on zone  11:     0 right-handed,    60 left-handed.
+WARNING: left-handed faces detected on zone  14:     0 right-handed,    30 left-handed.
+WARNING: left-handed faces detected on zone  15:     0 right-handed,    30 left-handed.
+WARNING: left-handed faces detected on zone  16:     0 right-handed,   136 left-handed.
+WARNING: left-handed faces detected on zone  17:     0 right-handed,    40 left-handed.
+WARNING: 10500 face(s) on cell zone   2 with wrong node order (on 3)
+WARNING:  2880 face(s) on cell zone   3 with wrong node order (on 3)
+To get more detailed information about the mesh check failure
+increase the mesh check verbosity via the text command:
+/mesh/check-verbosity
+
+Fluent can also try to fix the mesh check problems via the text command:
+/mesh/repair-improve/repair
+
+Adjusting the following setting:
+Changing Discretization Scheme for Turbulent Kinetic Energy:   from: Second Order Upwind   to: First Order Upwind
+
+Material "copper" copied from database.
+
+
+Initialize using the hybrid initialization method.
+
+Checking case topology... 
+-This case has both inlets & outlets 
+-Pressure information is not available at the boundaries.
+ Case will be initialized with constant pressure
+
+	iter		scalar-0
+
+	1		1.000000e+00
+	2		9.587731e+290
+	3		6.329702e-01
+	4		2.485565e-01
+	5		1.289462e-01
+	6		7.517782e-02
+	7		4.709624e-02
+	8		3.127565e-02
+	9		2.197533e-02
+	10		1.636594e-02
+
+Hybrid initialization is done.
+
+Warning: convergence tolerance of 1.000000e-06 not reached
+during Hybrid Initialization.
+
+  iter  continuity  x-velocity  y-velocity  z-velocity           k     epsilon     time/iter
+
+ Reversed flow on 792 faces (100.0% area) of pressure-outlet 8.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Divergence detected in AMG solver: pressure coupled        Stabilizing k to enhance linear solver robustness.
+        Stabilizing k using GMRES to enhance linear solver robustness.
+
+Divergence detected in AMG solver: k        Stabilizing epsilon to enhance linear solver robustness.
+        Stabilizing epsilon using GMRES to enhance linear solver robustness.
+
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+===============Message from the Cortex Process================================
+
+Compute processes interrupted. Processing can be resumed.
+
+==============================================================================
+
+Error at Node 0: floating point exception
+
+Error at Node 2: floating point exception
+
+Error at Node 1: floating point exception
+
+Error at Node 3: floating point exception
+
+Operation stopped.
+
+Error: An error or interrupt occurred in the previous operation.
+       Details have been printed to the text console transcript.
+Error Object: #f
+
+           Area-Weighted Average
+                      Wall Yplus                     
+-------------------------------- --------------------
+                    interface_fs          0.021843862
+
+  iter  continuity  x-velocity  y-velocity  z-velocity           k     epsilon     time/iter
+
+ Reversed flow on 792 faces (100.0% area) of pressure-outlet 8.
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+        Stabilizing pressure coupled to enhance linear solver robustness.
+        Stabilizing pressure coupled using GMRES to enhance linear solver robustness.
+
+Experiencing convergence difficulties - temporarily relaxing and trying again...
+
+Divergence detected in AMG solver: pressure coupled        Stabilizing k to enhance linear solver robustness.
+        Stabilizing k using GMRES to enhance linear solver robustness.
+
+Divergence detected in AMG solver: k        Stabilizing epsilon to enhance linear solver robustness.
+        Stabilizing epsilon using GMRES to enhance linear solver robustness.
+
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+Divergence detected in AMG solver: pressure coupled
+Divergence detected in AMG solver: k
+Divergence detected in AMG solver: epsilon
+===============Message from the Cortex Process================================
+
+Compute processes interrupted. Processing can be resumed.
+
+==============================================================================
+
+Error at Node 3: floating point exception
+
+Error at Node 2: floating point exception
+
+Error at Node 1: floating point exception
+
+Error at Node 0: floating point exception
+
+Operation stopped.
+
+Error: An error or interrupt occurred in the previous operation.
+       Details have been printed to the text console transcript.
+Error Object: #f
+
+Error: CAR: invalid argument [1]: wrong type [not a pair]
+Error Object: "outlet"
+
+Error: CAR: invalid argument [1]: wrong type [not a pair]
+Error Object: "outlet"
+Transcript Stop Time:  12:53:17, 16 Nov 2026 India Standard Time 
+Total Transcript Time: 0 Minute 51 Second.

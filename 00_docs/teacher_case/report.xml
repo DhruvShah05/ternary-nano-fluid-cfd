@@ -1,0 +1,219 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: axi, dp, pbns, rke (axi, double precision, pressure-based, realizable k-epsilon)
+Release: 19.2.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings                                
+   ------------------------------------------------------------------
+   Space                        Axisymmetric                            
+   Time                         Steady                                  
+   Viscous                      Realizable k-epsilon turbulence model   
+   Wall Treatment               Enhanced Wall Treatment                 
+   Heat Transfer                Enabled                                 
+   Solidification and Melting   Disabled                                
+   Radiation                    None                                    
+   Species                      Disabled                                
+   Coupled Dispersed Phase      Disabled                                
+   NOx Pollutants               Disabled                                
+   SOx Pollutants               Disabled                                
+   Soot                         Disabled                                
+   Mercury Pollutants           Disabled                                
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: therminol-vp-1-cu-cuo-theoretical (fluid)
+
+      Property                        Units     Method       Value(s)                                                                                                                                                                                                                                                                                                                                                            
+      ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      Density                         kg/m3     polynomial   (373.2 1065) (423.2 1024) (473.2 980.1) (523.2 934.7) (573.2 885.2)                                                                                                                                                                                                                                                                                                 
+      Cp (Specific Heat)              j/kg-k    polynomial   (373.2 1679) (423.2 1805) (473.2 1921) (523.2 2042) (573.2 2153)                                                                                                                                                                                                                                                                                                    
+      Thermal Conductivity            w/m-k     polynomial   (373.2 0.1329) (423.2 0.1262) (473.2 0.1185) (523.2 0.1099) (573.2 0.1004)                                                                                                                                                                                                                                                                                          
+      Viscosity                       kg/m-s    polynomial   (373.2 0.0009994) (383.7 0.0008821) (394.2 0.0007858) (404.8 0.0007046) (415.3 0.0006372) (425.8 0.0005791) (436.3 0.0005296) (446.9 0.0004859) (457.4 0.0004484) (467.9 0.0004152) (478.4 0.0003856) (489 0.0003597) (499.5 0.0003361) (510 0.0003147) (520.5 0.0002955) (531.1 0.0002786) (541.6 0.0002633) (552.1 0.0002491) (562.6 0.000236) (573.2 0.000224)   
+      Molecular Weight                kg/kmol   constant     28.966                                                                                                                                                                                                                                                                                                                                                              
+      Thermal Expansion Coefficient   1/k       constant     0                                                                                                                                                                                                                                                                                                                                                                   
+      Speed of Sound                  m/s       none         #f                                                                                                                                                                                                                                                                                                                                                                  
+
+   Material: ss-304 (solid)
+
+      Property               Units    Method         Value(s)   
+      -------------------------------------------------------
+      Density                kg/m3    tube density   #f         
+      Cp (Specific Heat)     j/kg-k   tube cp        #f         
+      Thermal Conductivity   w/m-k    tube k         #f         
+
+   Material: aluminum (solid)
+
+      Property               Units    Method     Value(s)   
+      ---------------------------------------------------
+      Density                kg/m3    constant   2719       
+      Cp (Specific Heat)     j/kg-k   constant   871        
+      Thermal Conductivity   w/m-k    constant   202.4      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name          id   type    
+      ------------------------
+      fluiddomain   4    fluid   
+
+   Setup Conditions
+
+      fluiddomain
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name               id   type              
+      ---------------------------------------
+      inlet              5    velocity-inlet    
+      outlet             6    pressure-outlet   
+      axis               7    axis              
+      developinglength   8    wall              
+      heatingregion      9    wall              
+
+   Setup Conditions
+
+      inlet
+
+         Condition                        Value                  
+         -----------------------------------------------------
+         Velocity Specification Method    1                      
+         Axial-Velocity                   (parameter . real-5)   
+         Temperature                      (parameter . real-8)   
+         Turbulent Specification Method   3                      
+         Turbulent Intensity              (parameter . real-6)   
+         Hydraulic Diameter               (parameter . real-7)   
+
+      outlet
+
+         Condition                        Value                  
+         -----------------------------------------------------
+         Backflow Total Temperature       (parameter . real-8)   
+         Turbulent Specification Method   3                      
+         Backflow Turbulent Intensity     (parameter . real-6)   
+         Backflow Hydraulic Diameter      (parameter . real-7)   
+
+      axis
+
+         Condition   Value   
+         -----------------
+
+      developinglength
+
+         Condition                  Value   
+         --------------------------------
+         Thermal BC Type            1       
+         Wall Motion                0       
+         Shear Boundary Condition   0       
+
+      heatingregion
+
+         Condition                  Value                  
+         -----------------------------------------------
+         Thermal BC Type            1                      
+         Heat Flux                  (parameter . real-4)   
+         Wall Motion                0                      
+         Shear Boundary Condition   0                      
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+      Energy       yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Relaxation
+
+      Variable                     Relaxation Factor   
+      ----------------------------------------------
+      Pressure                     0.3                 
+      Density                      1                   
+      Body Forces                  1                   
+      Momentum                     0.7                 
+      Turbulent Kinetic Energy     0.8                 
+      Turbulent Dissipation Rate   0.8                 
+      Turbulent Viscosity          1                   
+      Energy                       1                   
+
+   Linear Solver
+
+                                   Solver     Termination   Residual Reduction   
+      Variable                     Type       Criterion     Tolerance            
+      ------------------------------------------------------------------------
+      Pressure                     V-Cycle    0.1                                
+      X-Momentum                   Flexible   0.1           0.7                  
+      Y-Momentum                   Flexible   0.1           0.7                  
+      Turbulent Kinetic Energy     Flexible   0.1           0.7                  
+      Turbulent Dissipation Rate   Flexible   0.1           0.7                  
+      Energy                       F-Cycle    0.1                                
+
+   Pressure-Velocity Coupling
+
+      Parameter   Value    
+      ------------------
+      Type        SIMPLE   
+
+   Discretization Scheme
+
+      Variable                     Scheme                
+      ------------------------------------------------
+      Pressure                     Second Order          
+      Momentum                     Second Order Upwind   
+      Turbulent Kinetic Energy     Second Order Upwind   
+      Turbulent Dissipation Rate   Second Order Upwind   
+      Energy                       Second Order Upwind   
+
+   Solution Limits
+
+      Quantity                         Limit    
+      ---------------------------------------
+      Minimum Absolute Pressure        1        
+      Maximum Absolute Pressure        5e+10    
+      Minimum Temperature              1        
+      Maximum Temperature              5000     
+      Minimum Turb. Kinetic Energy     1e-14    
+      Minimum Turb. Dissipation Rate   1e-20    
+      Maximum Turb. Viscosity Ratio    100000   
+
+</SolverSettings>
+
+</FluentXMLReport>

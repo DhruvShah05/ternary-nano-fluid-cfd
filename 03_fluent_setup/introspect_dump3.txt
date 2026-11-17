@@ -1,0 +1,157 @@
+Mesh: C:\Users\ADMIN\Downloads\Ternary nanofluid simulation\02_geometry_mesh\2d\pipe2d_M3.msh
+Setup sequence done (read, axisymmetric, slit, energy on).
+
+##### velocity_inlet turbulence_specification
+turbulence_specification allowed_values: ['K and Omega', 'Intensity and Length Scale', 'Intensity and Viscosity Ratio', 'Intensity and Hydraulic Diameter']
+
+##### velocity_inlet momentum
+child_names: ['open_channel_wave_bc', 'segregated_velocity_inputs', 'system_coupling', 'velocity_specification_method', 'reference_frame', 'averaged_flow_specification_method', 'avg_flow_velocity', 'velocity_magnitude', 'initial_gauge_pressure', 'coordinate_system', 'velocity_components', 'swirl_angular_velocity', 'flow_direction', 'axis_direction', 'axis_origin', 'gauge_pressure', 'acoustic_wave_model', 'impedance_zero_order_term', 'real_pole_series', 'complex_pole_series', 'incoming_wave', 'moving_object_velocity_inputs', 'primary_phase_velocity_inputs', 'secondary_phase_velocity_inputs']
+command_names: []
+{'initial_gauge_pressure': {'option': 'value', 'value': 0},
+ 'reference_frame': 'Absolute',
+ 'velocity_magnitude': {'option': 'value', 'value': 0},
+ 'velocity_specification_method': 'Magnitude, Normal to Boundary'}
+
+##### pressure_outlet turbulence
+child_names: ['turbulence_specification', 'backflow_modified_turbulent_viscosity', 'backflow_laminar_kinetic_energy', 'backflow_intermittency', 'backflow_turbulent_kinetic_energy', 'backflow_turbulent_dissipation_rate', 'backflow_specific_dissipation_rate', 'backflow_velocity_variance_scale', 'backflow_turbulent_intensity', 'backflow_turbulent_length_scale', 'backflow_hydraulic_diameter', 'backflow_turbulent_viscosity_ratio', 'backflow_turbulent_viscosity_ratio_profile', 'reynolds_stress_specification', 'backflow_uu_reynolds_stresses', 'backflow_vv_reynolds_stresses', 'backflow_ww_reynolds_stresses', 'backflow_uv_reynolds_stresses', 'backflow_vw_reynolds_stresses', 'backflow_uw_reynolds_stresses', 'subgrid_kinetic_energy_specification', 'subgrid_kinetic_energy', 'subgrid_turbulent_intensity']
+command_names: []
+{'backflow_turbulent_intensity': 0.05,
+ 'backflow_turbulent_viscosity_ratio': 10,
+ 'turbulence_specification': 'Intensity and Viscosity Ratio'}
+
+##### pressure_outlet momentum
+child_names: ['system_coupling', 'backflow_reference_frame', 'pressure_spec', 'gauge_pressure', 'pressure_profile_multiplier', 'backflow_dir_spec_method', 'coordinate_system', 'flow_direction', 'backflow_pressure_spec', 'backflow_pressure_specification', 'axis_direction', 'axis_origin', 'prevent_reverse_flow', 'radial_equ_pressure_distribution', 'radial_equ_reference_position', 'radial_equ_specified_radius', 'radial_equ_specified_span', 'avg_pressure_spec', 'avg_method', 'target_mass_flow_rate', 'target_mass_flow', 'upper_limit_of_abs_pressure', 'lower_limit_of_abs_pressure', 'acoustic_wave_model', 'exit_pressure_spec', 'impedance_zero_order_term', 'real_pole_series', 'complex_pole_series', 'incoming_wave']
+command_names: []
+{'avg_pressure_spec': False,
+ 'backflow_dir_spec_method': 'Normal to Boundary',
+ 'backflow_pressure_spec': 'Total Pressure',
+ 'backflow_reference_frame': 'Absolute',
+ 'gauge_pressure': {'option': 'value', 'value': 0},
+ 'pressure_profile_multiplier': 1.0,
+ 'prevent_reverse_flow': False,
+ 'target_mass_flow_rate': False}
+
+##### wall outer_heated thermal_condition
+thermal_condition allowed_values: ['Temperature', 'Heat Flux', 'Convection', 'Radiation', 'Mixed', 'via Mapped Interface']
+
+##### wall solid_end_out thermal
+{'caf': {'option': 'value', 'value': 1},
+ 'heat_flux': {'option': 'value', 'value': 0},
+ 'heat_generation_rate': {'option': 'value', 'value': 0},
+ 'material': 'aluminum',
+ 'thermal_condition': 'Heat Flux',
+ 'wall_thickness': {'option': 'value', 'value': 0}}
+
+##### wall zone names
+walls: ['outer_heated', 'solid_end_out', 'interface_fs-shadow', 'interface_fs', 'outer_unheated', 'solid_end_in']
+
+##### materials containers
+fluid container:
+child_names: None
+command_names: ['create', 'delete', 'rename', 'list', 'list_properties', 'make_a_copy']
+solid container:
+child_names: None
+command_names: ['create', 'delete', 'rename', 'list', 'list_properties', 'make_a_copy']
+existing fluids: ['air']
+existing solids: ['aluminum']
+
+##### materials.database copy_by_name args
+argument_names: ['type', 'name', 'new_name', 'new_formula']
+
+##### try: copy copper from database
+solids after copy: ['aluminum', 'copper']
+{'chemical_formula': 'cu',
+ 'density': {'option': 'value', 'value': 8978},
+ 'name': 'copper',
+ 'specific_heat': {'option': 'value', 'value': 381},
+ 'thermal_conductivity': {'option': 'value', 'value': 387.6}}
+
+##### try: create fluid 'nf'
+fluids after create: ['air', 'nf']
+{'chemical_formula': '',
+ 'density': {'option': 'value', 'value': 1.225},
+ 'name': 'nf',
+ 'specific_heat': {'option': 'value', 'value': 1006.43},
+ 'thermal_conductivity': {'option': 'value', 'value': 0.0242},
+ 'viscosity': {'option': 'value', 'value': 1.7894e-05}}
+density.option allowed_values: ['value', 'ideal-gas', 'incompressible-ideal-gas', 'rgp-table', 'real-gas-soave-redlich-kwong', 'real-gas-peng-robinson', 'real-gas-aungier-redlich-kwong', 'real-gas-redlich-kwong', 'real-gas-nist', 'boussinesq', 'piecewise-linear', 'piecewise-polynomial', 'polynomial', 'compressible-liquid']
+
+##### cell_zone_conditions.solid['solid']
+child_names: ['name', 'phase', 'general', 'reference_frame', 'mesh_motion', 'solid_motion', 'sources', 'fixed_values', 'material_orientation', 'disabled', 'internal']
+command_names: ['display', 'create_surface']
+{'fixed_values': {'enable': False},
+ 'general': {'material': 'aluminum'},
+ 'material_orientation': {},
+ 'mesh_motion': {},
+ 'name': 'solid',
+ 'reference_frame': {'frame_motion': False},
+ 'solid_motion': {'enable': False},
+ 'sources': {'enable': False}}
+
+##### cell zone names
+fluid zones: ['fluid']; solid zones: ['solid']
+
+##### p_v_controls (flow_courant_number etc.)
+{'explicit_momentum_under_relaxation': 0.5,
+ 'explicit_pressure_under_relaxation': 0.5}
+
+##### solution.methods.axisymmetric
+child_names: ['alternative_axisymmetric_formulation', 'axis_stabilization']
+command_names: []
+get_state failed: api-get-var: the object is not active
+Error Object: solution/methods/axisymmetric
+
+##### initialization.patch.calculate_patch args
+argument_names: ['domain', 'cell_zones', 'volumes', 'registers', 'variable', 'reference_frame', 'use_custom_field_function', 'custom_field_function_name', 'value']
+
+##### file.export
+child_names: ['sc_def_file_settings', 'settings']
+command_names: ['abaqus', 'mechanical_apdl', 'mechanical_apdl_input', 'ascii', 'avs', 'ensight', 'ensight_gold', 'ensight_gold_surface', 'ensight_dvs', 'visualize_output_options', 'visualize_output_write', 'fieldview', 'fieldview_data', 'gambit', 'cgns', 'custom_heat_flux', 'dx', 'ensight_gold_parallel_surfaces', 'ensight_gold_parallel_volume', 'icemcfd_for_icepak', 'fast_mesh', 'fast_solution', 'fast_velocity', 'taitherm', 'fieldview_unstruct', 'fieldview_unstruct_mesh', 'fieldview_unstruct_data', 'fieldview_unstruct_surfaces', 'ideas', 'nastran', 'patran_neutral', 'patran_nodal', 'vtk', 'tecplot', 'outline_view_settings']
+
+##### residual criterion_type allowed
+criterion_type allowed_values: ['absolute', 'none']
+
+##### hybrid_initialize (needed so field data exists)
+
+##### results.surfaces
+child_names: ['point_surface', 'line_surface', 'rake_surface', 'plane_surface', 'iso_surface', 'iso_clip', 'zone_surface', 'partition_surface', 'transform_surface', 'imprint_surface', 'plane_slice', 'sphere_slice', 'quadric_surface', 'surface_cells', 'expression_volume', 'group_surface']
+command_names: ['delete', 'create_multiple_zone_surfaces', 'create_multiple_iso_surfaces', 'create_multiple_plane_surfaces', 'create_group_surfaces', 'ungroup_surfaces', 'set_rendering_priority', 'reset_zone_surfaces', 'split_surface', 'external_surface']
+
+##### surface type: iso_surface
+child_names: ['name', 'field', 'iso_values', 'range', 'surfaces', 'from_location', 'zones', 'volumes']
+command_names: ['display']
+{'field': 'pressure',
+ 'iso_values': [0],
+ 'name': 'tmp_iso_surface',
+ 'range': {'maximum': None, 'minimum': None},
+ 'surfaces': None,
+ 'zones': None}
+
+##### surface type: iso_clip
+child_names: ['name', 'field', 'surfaces', 'from_location', 'range']
+command_names: ['display']
+{'field': 'pressure', 'name': 'tmp_iso_clip', 'range': {'maximum': 0, 'minimum': 0}, 'surfaces': None}
+
+##### surface type: line_surface
+child_names: ['name', 'p0', 'p1']
+command_names: ['display']
+{'name': 'tmp_line_surface', 'p0': [0, 0, 0], 'p1': [0, 0, 0]}
+
+##### surface type: point_surface
+child_names: ['name', 'reference_frame', 'coordinate', 'point', 'r', 'theta', 'z', 'snap_method', 'dynamic']
+command_names: ['display']
+{'name': 'tmp_point_surface', 'point': [0, 0, 0], 'snap_method': 'off'}
+
+##### surface type: plane_surface
+plane_surface.create failed (api-checks-before-command-or-query: object is not active
+Error Object: results/surfaces/plane-surface); trying item assignment
+FAILED: RuntimeError: api-checks-before-command-or-query: object is not active
+Error Object: results/surfaces/plane-surface
+
+##### report_of / surface_names allowed values
+report_of is None: False
+total fields: 110
+matching fields: ['pressure', 'pressure-coefficient', 'dynamic-pressure', 'absolute-pressure', 'total-pressure', 'rel-total-pressure', 'density', 'density-all', 'temperature', 'total-temperature', 'rel-total-temperature', 'wall-temperature', 'wall-adjacent-temperature', 'reference-temperature-at-y+', 'y-star', 'y-plus', 'wall-shear', 'axial-wall-shear', 'radial-wall-shear', 'heat-flux', 'heat-transfer-coef-yplus', 'x-coordinate', 'pressure-hessian-indicator']
+surface_names allowed: ['tmp_point_surface', 'tmp_line_surface', 'tmp_iso_clip', 'tmp_iso_surface', 'interface_fs-shadow', 'interface_fs', 'interior_solid', 'interior_fluid', 'inlet', 'outlet', 'axis', 'outer_unheated', 'outer_heated', 'solid_end_in', 'solid_end_out']
+
+DONE. Upload introspect_dump3.txt

@@ -1,0 +1,164 @@
+Pre-flight OK, mesh size (bytes): 4130717
+Mesh read, axisymmetric, slit, energy on. Currently k-omega SST.
+
+================ PART A: current model (k-omega SST) ================
+
+##### viscous.model
+allowed_values: ['inviscid', 'laminar', 'k-epsilon', 'k-omega', 'mixing-length', 'spalart-allmaras', 'k-kl-w', 'transition-sst', 'reynolds-stress', 'scale-adaptive-simulation', 'detached-eddy-simulation']
+  [child_names] FAILED: AttributeError: 'model_2' object has no attribute 'child_names'
+child_names: []
+  [command_names] FAILED: AttributeError: 'model_2' object has no attribute 'command_names'
+state: 'k-omega'
+
+##### viscous.options
+child_names: ['turb_buoyancy_effects', 'viscous_heating', 'low_pressure_boundary_slip', 'curvature_correction', 'corner_flow_correction', 'compressibility_effects', 'production_kato_launder_enabled', 'production_limiter', 'kw_buoyancy_effects', 'enable_geko', 'turbulent_prandtl_numbers']
+state: {'production_kato_launder_enabled': False,
+ 'production_limiter': {'clip_factor': 10.0, 'enabled': True},
+ 'turbulent_prandtl_numbers': {'energy_prandtl_number': {'option': 'constant', 'value': 0.85},
+                               'wall_prandtl_number': {'option': 'constant', 'value': 0.85}},
+ 'viscous_heating': False}
+  .turb_buoyancy_effects allowed_values: []
+
+##### viscous.options.turbulent_prandtl_numbers
+child_names: ['energy_prandtl_number', 'wall_prandtl_number', 'turbulent_schmidt_number']
+state: {'energy_prandtl_number': {'option': 'constant', 'value': 0.85}, 'wall_prandtl_number': {'option': 'constant', 'value': 0.85}}
+
+##### ...energy_prandtl_number
+child_names: ['option', 'value', 'user_defined']
+state: {'option': 'constant', 'value': 0.85}
+  .option allowed_values: ['constant']
+  .user_defined allowed_values: []
+
+##### ...wall_prandtl_number
+child_names: ['option', 'value', 'user_defined']
+state: {'option': 'constant', 'value': 0.85}
+  .option allowed_values: ['constant']
+  .user_defined allowed_values: []
+
+##### viscous.turbulence_expert
+child_names: ['k_omega_vorticity_based_production', 'kw_add_sas', 'kw_add_des', 'turbulence_damping', 'rke_cmu_rotation_term', 'turb_non_newtonian', 'non_newtonian_modification', 'turb_pk_compressible', 'thermal_p_function', 'restore_sst_v61']
+state: {'restore_sst_v61': False, 'thermal_p_function': True, 'turb_non_newtonian': False}
+
+##### viscous.near_wall_treatment (k-omega)
+child_names: ['wall_treatment', 'user_defined', 'enhanced_wall_treatment_options', 'wall_omega_treatment', 'use_second_cell_off_a_wall_quantities']
+state: {'wall_omega_treatment': 'correlation'}
+  .wall_treatment allowed_values: []
+  .user_defined allowed_values: []
+  .wall_omega_treatment allowed_values: ['correlation', 'tabulated']
+
+================ PART B: switch to k-epsilon ================
+model now: k-epsilon
+viscous state: {'k_epsilon': {'coefficients': {'tdr_prandtl_number': {'option': 'constant', 'value': 1.3},
+                                'tke_prandtl_number': {'option': 'constant', 'value': 1.0}}},
+ 'k_epsilon_model': 'standard',
+ 'model': 'k-epsilon',
+ 'near_wall_treatment': {'wall_treatment': 'standard-wall-fn'},
+ 'options': {'production_kato_launder_enabled': False,
+             'production_limiter': {'enabled': False},
+             'turbulent_prandtl_numbers': {'energy_prandtl_number': {'option': 'constant', 'value': 0.85},
+                                           'wall_prandtl_number': {'option': 'constant', 'value': 0.85}},
+             'viscous_heating': False},
+ 'turbulence_expert': {'thermal_p_function': True, 'turb_non_newtonian': False},
+ 'user_defined_functions': {'energy_prandtl': 'none',
+                            'tdr_prandtl': 'none',
+                            'tke_prandtl': 'none',
+                            'turb_visc': 'none',
+                            'wall_prandtl': 'none'}}
+
+##### viscous.k_epsilon_model
+allowed_values: ['standard', 'realizable', 'rng']
+  [child_names] FAILED: AttributeError: 'k_epsilon_model' object has no attribute 'child_names'
+child_names: []
+  [command_names] FAILED: AttributeError: 'k_epsilon_model' object has no attribute 'command_names'
+state: 'standard'
+
+---------------- k_epsilon_model = standard ----------------
+k_epsilon_model now: standard
+
+##### viscous.near_wall_treatment (standard)
+child_names: ['wall_treatment', 'user_defined', 'enhanced_wall_treatment_options', 'wall_omega_treatment', 'use_second_cell_off_a_wall_quantities']
+state: {'wall_treatment': 'standard-wall-fn'}
+  .wall_treatment allowed_values: ['standard-wall-fn', 'non-equilibrium-wall-fn', 'enhanced-wall-treatment', 'menter-lechner', 'scalable-wall-functions']
+  .user_defined allowed_values: []
+  .wall_omega_treatment allowed_values: []
+
+##### viscous.k_epsilon (standard)
+child_names: ['differential_viscosity_model', 'swirl_dominated_flow', 'coefficients']
+state: {'coefficients': {'tdr_prandtl_number': {'option': 'constant', 'value': 1.3}, 'tke_prandtl_number': {'option': 'constant', 'value': 1.0}}}
+
+##### viscous.options (standard)
+child_names: ['turb_buoyancy_effects', 'viscous_heating', 'low_pressure_boundary_slip', 'curvature_correction', 'corner_flow_correction', 'compressibility_effects', 'production_kato_launder_enabled', 'production_limiter', 'kw_buoyancy_effects', 'enable_geko', 'turbulent_prandtl_numbers']
+state: {'production_kato_launder_enabled': False,
+ 'production_limiter': {'enabled': False},
+ 'turbulent_prandtl_numbers': {'energy_prandtl_number': {'option': 'constant', 'value': 0.85},
+                               'wall_prandtl_number': {'option': 'constant', 'value': 0.85}},
+ 'viscous_heating': False}
+  .turb_buoyancy_effects allowed_values: []
+
+##### ...turbulent_prandtl_numbers (standard)
+child_names: ['energy_prandtl_number', 'wall_prandtl_number', 'turbulent_schmidt_number']
+state: {'energy_prandtl_number': {'option': 'constant', 'value': 0.85}, 'wall_prandtl_number': {'option': 'constant', 'value': 0.85}}
+
+---------------- k_epsilon_model = realizable ----------------
+k_epsilon_model now: realizable
+
+##### viscous.near_wall_treatment (realizable)
+child_names: ['wall_treatment', 'user_defined', 'enhanced_wall_treatment_options', 'wall_omega_treatment', 'use_second_cell_off_a_wall_quantities']
+state: {'wall_treatment': 'standard-wall-fn'}
+  .wall_treatment allowed_values: ['standard-wall-fn', 'non-equilibrium-wall-fn', 'enhanced-wall-treatment', 'menter-lechner', 'scalable-wall-functions']
+  .user_defined allowed_values: []
+  .wall_omega_treatment allowed_values: []
+
+##### viscous.k_epsilon (realizable)
+child_names: ['differential_viscosity_model', 'swirl_dominated_flow', 'coefficients']
+state: {'coefficients': {'tdr_prandtl_number': {'option': 'constant', 'value': 1.2}, 'tke_prandtl_number': {'option': 'constant', 'value': 1.0}}}
+
+##### viscous.options (realizable)
+child_names: ['turb_buoyancy_effects', 'viscous_heating', 'low_pressure_boundary_slip', 'curvature_correction', 'corner_flow_correction', 'compressibility_effects', 'production_kato_launder_enabled', 'production_limiter', 'kw_buoyancy_effects', 'enable_geko', 'turbulent_prandtl_numbers']
+state: {'production_limiter': {'enabled': False},
+ 'turbulent_prandtl_numbers': {'energy_prandtl_number': {'option': 'constant', 'value': 0.85},
+                               'wall_prandtl_number': {'option': 'constant', 'value': 0.85}},
+ 'viscous_heating': False}
+  .turb_buoyancy_effects allowed_values: []
+
+##### ...turbulent_prandtl_numbers (realizable)
+child_names: ['energy_prandtl_number', 'wall_prandtl_number', 'turbulent_schmidt_number']
+state: {'energy_prandtl_number': {'option': 'constant', 'value': 0.85}, 'wall_prandtl_number': {'option': 'constant', 'value': 0.85}}
+
+================ PART C: other things the gate script touches, now with k-epsilon ================
+residual equations: ['continuity', 'x-velocity', 'y-velocity', 'energy', 'k', 'epsilon']
+controls.equations state: {'flow': True, 'ke': True, 'temperature': True}
+
+##### pseudo_time_explicit_relaxation_factor
+child_names: ['local_dt_dualts_relax', 'global_dt_pseudo_relax']
+state: {'global_dt_pseudo_relax': {'body-force': 1.0, 'density': 1.0, 'epsilon': 0.75, 'k': 0.75, 'temperature': 0.75, 'turb-viscosity': 1.0}}
+
+##### velocity_inlet inlet turbulence
+child_names: ['les_spec', 'fluctuating_velocity_algorithm', 'number_of_fourier_modes', 'number_of_vortices', 'streamwise_fluctuations', 'satisfy_mass_conservation', 'scale_search_limiter', 'stg_turbulent_intensity', 'stg_turbulent_viscosity_ratio', 'wall_distance', 'volumetric_forcing', 'forcing_zone_thickness', 'volumetric_thickness', 'turbulence_specification', 'modified_turbulent_viscosity', 'laminar_kinetic_energy', 'intermittency', 'turbulent_kinetic_energy', 'turbulent_dissipation_rate', 'specific_dissipation_rate', 'velocity_variance_scale', 'turbulent_intensity', 'turbulent_length_scale', 'hydraulic_diameter', 'turbulent_viscosity_ratio', 'turbulent_viscosity_ratio_profile', 'reynolds_stress_specification', 'uu_reynolds_stresses', 'vv_reynolds_stresses', 'ww_reynolds_stresses', 'uv_reynolds_stresses', 'vw_reynolds_stresses', 'uw_reynolds_stresses', 'subgrid_kinetic_energy_specification', 'subgrid_kinetic_energy', 'subgrid_turbulent_intensity']
+state: {'turbulence_specification': 'Intensity and Viscosity Ratio', 'turbulent_intensity': 0.05, 'turbulent_viscosity_ratio': 10}
+  .les_spec allowed_values: []
+  .fluctuating_velocity_algorithm allowed_values: []
+  .scale_search_limiter allowed_values: []
+  .forcing_zone_thickness allowed_values: []
+  .turbulence_specification allowed_values: ['K and Epsilon', 'Intensity and Length Scale', 'Intensity and Viscosity Ratio', 'Intensity and Hydraulic Diameter']
+  .reynolds_stress_specification allowed_values: []
+  .subgrid_kinetic_energy_specification allowed_values: []
+
+##### pressure_outlet outlet turbulence
+child_names: ['turbulence_specification', 'backflow_modified_turbulent_viscosity', 'backflow_laminar_kinetic_energy', 'backflow_intermittency', 'backflow_turbulent_kinetic_energy', 'backflow_turbulent_dissipation_rate', 'backflow_specific_dissipation_rate', 'backflow_velocity_variance_scale', 'backflow_turbulent_intensity', 'backflow_turbulent_length_scale', 'backflow_hydraulic_diameter', 'backflow_turbulent_viscosity_ratio', 'backflow_turbulent_viscosity_ratio_profile', 'reynolds_stress_specification', 'backflow_uu_reynolds_stresses', 'backflow_vv_reynolds_stresses', 'backflow_ww_reynolds_stresses', 'backflow_uv_reynolds_stresses', 'backflow_vw_reynolds_stresses', 'backflow_uw_reynolds_stresses', 'subgrid_kinetic_energy_specification', 'subgrid_kinetic_energy', 'subgrid_turbulent_intensity']
+state: {'backflow_turbulent_intensity': 0.05,
+ 'backflow_turbulent_viscosity_ratio': 10,
+ 'turbulence_specification': 'Intensity and Viscosity Ratio'}
+  .turbulence_specification allowed_values: ['K and Epsilon', 'Intensity and Length Scale', 'Intensity and Viscosity Ratio', 'Intensity and Hydraulic Diameter']
+  .reynolds_stress_specification allowed_values: []
+  .subgrid_kinetic_energy_specification allowed_values: []
+
+##### wall interface_fs momentum
+child_names: ['wall_motion', 'moving', 'relative', 'rotating', 'components', 'velocity_spec', 'speed', 'rotation_speed', 'rotation_axis_origin', 'rotation_axis_direction', 'direction', 'velocity_components', 'shear_condition', 'fsi_interface', 'periodic_displacement', 'periodic_imaginary_displacement', 'frequency', 'amplitude', 'nodal_diam', 'passage_number', 'fwd', 'aero', 'cmplx', 'norm', 'method', 'eom_zeta', 'eom_damping_active', 'eom_initial_period', 'force_real_component', 'force_imaginary_component', 'force_cmplx', 'force_norm', 'shear_stress', 'fslip', 'eslip', 'surface_tension_gradient', 'specified_shear', 'specularity_coeff', 'mom_accommodation_coeff']
+state: {'shear_condition': 'No Slip', 'wall_motion': 'Stationary Wall'}
+  .wall_motion allowed_values: ['Stationary Wall', 'Moving Wall']
+  .relative allowed_values: []
+  .velocity_spec allowed_values: []
+  .shear_condition allowed_values: ['No Slip', 'Specified Shear', 'Marangoni Stress']
+
+DONE. Upload 03_fluent_setup\introspect_dump_ke.txt

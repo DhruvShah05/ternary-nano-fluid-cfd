@@ -1,0 +1,38 @@
+# ---- Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+test.py
+
+# ---- Fluent scratch output (written to whatever folder Fluent starts in)
+*.trn
+fluent-*-error.log
+cleanup-fluent-*.bat
+05_results/_tmp_report.txt
+
+# ---- Large binaries that the scripts regenerate
+# meshes: python 02_geometry_mesh\2d\make_2d_mesh.py  /  python 02_geometry_mesh\3d\make_3d_mesh.py
+*.msh
+# Fluent case + data (2D few MB each, 3D ~50 MB): re-run the gate scripts, or keep a local/OneDrive copy
+*.cas.h5
+*.dat.h5
+*.cas
+*.dat
+
+# ---- Downloads, installers, archives (teacher's originals stay local)
+*.wbpz
+*.wbpj
+*.rar
+*.zip
+*.7z
+*.exe
+*.msi
+
+# ---- OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,34 @@
+Gate B Re10000_B3D_tiny_TEST   mesh pipe3d_B3D_tiny.msh (8880 cells, half model)   turbulence ke_rlz_ewt   relax=0.5 scale1=0.1
+Expected (half model): re=10000, pr=5.8316, v=0.37411, mdot=0.077224, f=0.030564, nu_gnielinski=72.696, h_expected=1937.5, q_in_expected=9687.6, q_out=8912.6, q_total=699.49, dTb_expected=2.1665, v_circle=0.37304
+Expected inlet static pressure about 371 Pa (Darcy)
+Mesh read (3D), interface slit, energy on.
+  mesh check run (see the transcript for its report)
+Applying setup:
+    verified: model=k-epsilon variant=realizable wall_treatment=enhanced-wall-treatment Pr_t(energy)=0.85 Pr_t(wall)=0.85
+  OK    viscous model ke_rlz_ewt
+  OK    material nf (water, constant)
+  OK    material copper from database
+  OK    fluid zone -> nf
+  OK    solid zone -> copper
+  OK    velocity inlet 0.374112 m/s
+  OK    pressure outlet
+  OK    outer_q1..q4 heat flux 8912.6, 8912.6, 8912.6, 8912.6
+  OK    adiabatic walls
+  OK    symmetry plane zones present
+  OK    explicit relaxation 0.5
+  OK    residual targets, auto-stop OFF
+    verified discretisation: {'epsilon': 'second-order-upwind', 'k': 'second-order-upwind', 'mom': 'second-order-upwind', 'pressure': 'second-order', 'temperature': 'second-order-upwind'}
+  OK    second-order discretisation (all equations)
+  OK    pseudo-time scale factor 0.1
+Initialising (flow-first: temperature equation OFF):
+  temperature equation -> OFF (via equations['temperature'] = ...)
+  patch T=300.0 OK with ['cell_zones', 'value', 'variable']
+Warm-up 50 iterations, then post-processing setup:
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 0.021843862, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+Flow stage (temperature equation OFF):
+
+ABORTED: RuntimeError: CAR: invalid argument [1]: wrong type [not a pair]
+Error Object: outlet

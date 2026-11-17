@@ -1,0 +1,32 @@
+Gate A Re10000_M2_TEST   mesh pipe2d_M2.msh   relax=0.75 scale1=1.0 scale2=5.0
+Expected: re=10000, pr=5.8316, v=0.37304, mdot=0.15445, f=0.030564, nu_gnielinski=72.696, h_expected=1937.5, q_in_expected=9687.6, q_out=8912.6, q_total=1400, dTb_expected=2.168
+Expected inlet static pressure (gauge, outlet = 0): about 369 Pa (Darcy; developing flow adds a bit)
+Fluent transcript -> C:\Users\ADMIN\AppData\Local\Temp\fluent_transcript_Re10000_M2_TEST.txt (copied to 05_results at the end)
+Mesh read, axisymmetric, interface slit, energy on.
+Applying setup:
+  OK    viscous model k-omega SST
+  OK    material nf (water, constant)
+  OK    material copper from database
+  OK    fluid zone -> nf
+  OK    solid zone -> copper
+  OK    velocity inlet
+  OK    pressure outlet
+  OK    outer_heated heat flux
+  OK    adiabatic walls
+  OK    explicit relaxation 0.75
+  OK    residual targets, auto-stop OFF
+  OK    pseudo-time scale factor 1.0
+Initialising (flow-first: temperature equation OFF):
+  temperature equation -> OFF (via equations['temperature'] = ...)
+  patch T=300.0 OK with ['cell_zones', 'value', 'variable']
+Warm-up 50 iterations, then post-processing setup:
+  [first report return: type=NoneType, value='None']
+  area-avg y+ on interface walls: {'interface_fs': 0.17498571, 'interface_fs-shadow': 0.0}
+  fluid-side wall = interface_fs
+  created 40 planes, 40 bands, 2 friction planes
+Flow stage (temperature equation OFF):
+  test flow probe: {'p_in': 41828.876, 'm_in': 0.15444855, 'm_out': 0.15208193, 'T_out': 300.0}
+Energy stage (temperature equation ON):
+  temperature equation -> ON (via equations['temperature'] = ...)
+
+ABORTED: RuntimeError: outlet temperature 646.75908 K out of range -> diverged

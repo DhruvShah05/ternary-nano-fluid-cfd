@@ -1,0 +1,4 @@
+Mesh file size (bytes): 4130717
+Pre-flight OK: mesh file contains only valid mesh lines.
+PyFluent version: 0.43.0
+Mesh file: C:\Users\ADMIN\Downloads\Ternary nanofluid simulation\02_geometry_mesh\2d\pipe2d_M2.msh
