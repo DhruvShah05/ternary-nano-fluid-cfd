@@ -248,8 +248,8 @@ def finalise(post, nums, total, converged, tag, results_dir, log, re_, extra, pr
     elif is_gate:
         log("\nGate B: no 2D reference file found; run fluent_gateA.py --re <Re> --mesh M2 first.")
     else:
-        log(f"\nNon-uniform flux case ({tag}): Nu (circumferential average, window) {nu_win:.3f}; "
-            f"uniform-flux Gate B gave 84.286 for comparison. Not a validation gate.")
+        log(f"\n{prefix} {tag}: Nu (circumferential average, window) {nu_win:.3f}, "
+            f"Gnielinski {nums['nu_gnielinski']:.3f} ({100 * (nu_win / nums['nu_gnielinski'] - 1):+.2f} %)")
     return res
 
 
@@ -265,6 +265,7 @@ def main():
                     help="per-sector outer flux in suns for q1,q2,q3,q4, e.g. 1,1,20,20 (mirrored: q8,q7,q6,q5). "
                          "Omit for the uniform Gate B flux.")
     ap.add_argument("--sun", type=float, default=1000.0, help="W/m2 per sun (default 1000)")
+    ap.add_argument("--prefix", default=None, help="output file prefix (default gateB, or sun3d with --suns)")
     a = ap.parse_args()
 
     fluxes = None
@@ -279,6 +280,8 @@ def main():
     if fluxes:
         tag += "_sun" + "-".join(f"{s_:g}" for s_ in suns)
         prefix = "sun3d"
+    if a.prefix:
+        prefix = a.prefix
     results_dir = ROOT / "05_results"
     results_dir.mkdir(parents=True, exist_ok=True)
     logfile = results_dir / f"{prefix}_{tag}_log.txt"

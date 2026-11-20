@@ -49,6 +49,13 @@ LEVELS = {
     # nsec: cells per 45 deg sector; a: half-width of the core rectangle (m)
     "B3D": dict(nsec=6, a=5.0e-3, first=5e-6, growth=1.20, n_infl=22, n_trans=8, n_solid=4,
                 dx_u=20e-3, dx_h=5e-3),
+    # Gate D mesh study (B3D is the FINE mesh). Every spacing is scaled by r: first cell x r, growth 1.2^r,
+    # layer counts / r, cells per sector / r, axial dx x r. Heated dx divides the 5 cm Nu bands exactly
+    # (5.0 / 6.25 / 8.33 mm = 10 / 8 / 6 cells per band). Medium r = 1.25, coarse r = 1.667 (vs fine).
+    "D3M": dict(nsec=5, a=5.0e-3, first=6.25e-6, growth=1.20 ** 1.25, n_infl=18, n_trans=6, n_solid=3,
+                dx_u=25e-3, dx_h=6.25e-3),
+    "D3C": dict(nsec=4, a=5.0e-3, first=8.333e-6, growth=1.20 ** (5 / 3), n_infl=13, n_trans=5, n_solid=2,
+                dx_u=33.33e-3, dx_h=2.0 / 240),
 }
 N_SECTORS_HALF = 4
 

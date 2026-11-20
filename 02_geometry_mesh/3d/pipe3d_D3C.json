@@ -1,0 +1,32 @@
+{
+  "level": "D3C",
+  "tiny": false,
+  "normal_toward": "c0",
+  "half_model": true,
+  "theta0_deg": 22.5,
+  "params": {
+    "nsec": 4,
+    "a": 0.005,
+    "first": 8.333e-06,
+    "growth": 1.355091881588681,
+    "n_infl": 13,
+    "n_trans": 5,
+    "n_solid": 2,
+    "dx_u": 0.03333,
+    "dx_h": 0.008333333333333333
+  },
+  "cells": 107712,
+  "inlet_area": 0.0002064055606930637,
+  "inlet_area_exact": 0.00020773781421862505,
+  "sector_area": {
+    "1": 0.019603428065912122,
+    "2": 0.019603428065912115,
+    "3": 0.019603428065912122,
+    "4": 0.019603428065912122
+  },
+  "sector_area_exact": 0.019634954084936207,
+  "interface_heated_area_exact": 0.07225663103256524,
+  "faceting_area_deficit_pct": 0.6413148855794248,
+  "axial_cells": 306,
+  "cross_section_cells": 352
+}
